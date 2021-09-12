@@ -5,8 +5,9 @@
     <div class="limiter">
         <div class="container-login100 gradlog" style="background-image: url('img/bg/wellcome-bg.jpg');">
             <div class="wrap-login100 p-t-190 p-b-30">
-                <form class="login100-form validate-form">
-    
+                <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
+                    @csrf
+
                     <!-- <span class="login100-form-title p-t-20 p-4">
                         Login
                     </span> -->
@@ -20,7 +21,7 @@
                     </div>
 
                     <div class="wrap-input100 validate-input mb-3" data-validate="Password is required">
-                        <input class="input100" type="password" name="pass" placeholder="Password">
+                        <input class="input100" type="password" name="password" placeholder="Password">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock"></i>

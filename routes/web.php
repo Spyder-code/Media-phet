@@ -53,3 +53,8 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
     Route::resource('/game', App\Http\Controllers\GameController::class);
 });
+
+Route::middleware(['visitor'])->group(function () {
+    Route::get('/simulation', [App\Http\Controllers\PageController::class, 'simulation'])->name('simulation');
+    Route::get('/room', [App\Http\Controllers\PageController::class, 'room'])->name('room');
+});

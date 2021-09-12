@@ -1,4 +1,4 @@
-<!--Top bar area start-->  
+<!--Top bar area start-->
 <header class="top-bar">
     <div class="container-fluid">
         <div class="row">
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
                 <ul class="social-icon">
                     <li><a href=""><i class="fa fa-youtube"></i></a></li>
                     <li><a href=""><i class="fa fa-behance"></i></a></li>
@@ -75,8 +75,8 @@
         </div>
     </div>
 </header>
-<!--Top bar area end--> 
-  <!--Main menu area start--> 
+<!--Top bar area end-->
+  <!--Main menu area start-->
 <section class="main-menu-area border-top">
     <div class="container-fluid">
         <div class="row">
@@ -87,9 +87,9 @@
                     </a>
                 </div>
                 <div class="accordion-wrapper hide-sm-up">
-                    <a href="#" class="mobile-open"><i class="fa fa-bars" ></i></a> 
+                    <a href="#" class="mobile-open"><i class="fa fa-bars" ></i></a>
                     <!--Mobile Menu start-->
-                
+
                     <ul id="mobilemenu" class="accordion">
                    <li class="mob-logo"><a href="index.html">
                         <img src="img/logo.png" alt="">
@@ -138,7 +138,7 @@
                             <li><a href="#">boys section</a></li>
                         </ul>
                     </li>
-                    
+
                     <li>
                         <div class="link font-per">Facilities<i class="fa fa-chevron-down"></i></div>
                         <ul class="submenu font-per">
@@ -163,7 +163,7 @@
                     </li>
                    <li>
                         <div class="link font-per"><a href="about-us.html">news & events</a></div>
-                       
+
                     </li>
                     <li>
                         <div class="link font-red">Contact<i class="fa fa-chevron-down"></i></div>
@@ -176,19 +176,19 @@
                             <a href="contact.html" class="kids-care-btn bg-sky">Login</a>
                         </div>
                     </li>
-                    
+
                 </ul>
                     <!--Mobile Menu end-->
-              
+
                 </div>
             </div>
             <!--Main menu start-->
-         
+
             <div class="col-md-9 col-lg-9 col-xl-8">
                 <div class="mainmenu float-right style-4">
                     <ul id="navigation">
                         <li class="fc-orange"><img src="img/icon/menu-icon3.png" alt=""><a href="/">Home</a></li>
-                        <li class="fc-red hav-sub"><img src="img/icon/menu-icon1.png" alt=""><a href="/simulation" class="font-red">Simulations<i class="fa fa-angle-down" ></i></a>
+                        <li class="fc-red hav-sub"><img src="img/icon/menu-icon1.png" alt=""><a href="{{ route('simulation') }}" class="font-red">Simulations<i class="fa fa-angle-down" ></i></a>
                            <div class="mega-menu">
                                 <div class="mega-catagory">
                                     <h4><a href="#"><span>Pecahan</span></a></h4>
@@ -248,7 +248,7 @@
                             </div>
                        </li>
                        <li class="fc-per"><img src="img/icon/menu-icon5.png" alt=""><a href="events.html">Research</a></li>
-                       
+
                        <li class="fc-orange hav-sub"> <img src="img/icon/menu-icon6.png" alt=""> <a href="shop.html">Accessibility<i class="fa fa-angle-down" ></i></a>
                           <div class="mega-menu mm-two">
                                 <div class="mega-catagory">
@@ -292,8 +292,8 @@
                                     </div>
                                 </div>
                             </div>
-                           
-                       
+
+
                        </li>
                        <li class="fc-sky hav-sub"><img src="img/icon/menu-icon7.png" alt=""><a href="contact.html">Contact us</a></li>
                     </ul>
@@ -307,7 +307,7 @@
                         <a href="javascript:void(0)"><i class="fa fa-search"></i></a>
                     </div>
                     <div class="top-contact-btn align-middle">
-                        <a href="/masuk" class="kids-care-btn bg-sky">Login</a>
+                        <a href="{{ route('login') }}" class="kids-care-btn bg-sky">Login</a>
                     </div>
                 </div>
             </div>
