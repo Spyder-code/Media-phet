@@ -14,8 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('media-phet/index');
 })->middleware('visitor');
+
+Route::get('/room', function () {
+    return view('media-phet/room');
+})->middleware('visitor');
+
+Route::get('/simulation', function () {
+    return view('media-phet/simulation');
+})->middleware('visitor');
+
+Route::get('/masuk', function () {
+    return view('media-phet/login');
+})->middleware('visitor');
+
+Route::get('/registrasi', function () {
+    return view('media-phet/registrasi');
+})->middleware('visitor');
+
 Route::get('/blank', function () {
     return view('admin.blank');
 })->name('blank');
