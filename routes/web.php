@@ -17,21 +17,21 @@ Route::get('/', function () {
     return view('media-phet/index');
 })->middleware('visitor');
 
-Route::get('/room', function () {
-    return view('media-phet/room');
-})->middleware('visitor');
+// Route::get('/room', function () {
+//     return view('media-phet/room');
+// })->middleware('visitor');
 
-Route::get('/simulation', function () {
-    return view('media-phet/simulation');
-})->middleware('visitor');
+// Route::get('/simulation', function () {
+//     return view('media-phet/simulation');
+// })->middleware('visitor');
 
-Route::get('/masuk', function () {
-    return view('media-phet/login');
-})->middleware('visitor');
+// Route::get('/masuk', function () {
+//     return view('media-phet/login');
+// })->middleware('visitor');
 
-Route::get('/registrasi', function () {
-    return view('media-phet/registrasi');
-})->middleware('visitor');
+// Route::get('/registrasi', function () {
+//     return view('media-phet/registrasi');
+// })->middleware('visitor');
 
 Route::get('/blank', function () {
     return view('admin.blank');
@@ -57,4 +57,6 @@ Route::prefix('admin')->middleware('admin')->group(function(){
 Route::middleware(['visitor'])->group(function () {
     Route::get('/simulation', [App\Http\Controllers\PageController::class, 'simulation'])->name('simulation');
     Route::get('/room', [App\Http\Controllers\PageController::class, 'room'])->name('room');
+    Route::get('/index', [App\Http\Controllers\PageController::class, 'index'])->name('index');
+    Route::get('/akun', [App\Http\Controllers\PageController::class, 'akun'])->name('akun');
 });

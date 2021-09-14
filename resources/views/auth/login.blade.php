@@ -41,7 +41,7 @@
                     </div> -->
 
                     <div class="justify-content-center mt-3 w-full">
-                        <a class="txt1" href="/registrasi">
+                        <a class="txt1" href="{{ route('register') }}">
                             Buat akun baru
                             <i class="fa fa-long-arrow-right"></i>
                         </a>

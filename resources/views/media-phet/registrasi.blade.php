@@ -13,7 +13,7 @@
                     </span> -->
 
                     <div class="wrap-input100 validate-input mb-3">
-                        <input class="input100" type="text" name="username" placeholder="Username">
+                        <input class="input100" type="text" id="name" name="name" placeholder="Nama">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user"></i>
@@ -21,15 +21,15 @@
                     </div>
 
                     <div class="wrap-input100 validate-input mb-3">
-                        <input class="input100" type="text" name="sekolah" placeholder="Nama Sekolah">
+                        <input class="input100" type="text" id="username" name="username" placeholder="Username">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
-                            <i class="fa fa-university"></i>
+                            <i class="fa fa-user"></i>
                         </span>
                     </div>
 
                     <div class="wrap-input100 validate-input mb-3">
-                        <input class="input100" type="text" name="email" placeholder="Email">
+                        <input class="input100" type="text" id="email" name="email" placeholder="Email">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope"></i>
@@ -37,10 +37,18 @@
                     </div>
 
                     <div class="wrap-input100 validate-input mb-3" data-validate="Password is required">
-                        <input class="input100" type="password" name="pass" placeholder="Password">
+                        <input class="input100" type="password" id="password" name="password" placeholder="Password">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input mb-3">
+                        <input class="input100" type="text" id="password-confirm" name="password_confirmation" placeholder="Nama Sekolah">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-university"></i>
                         </span>
                     </div>
 

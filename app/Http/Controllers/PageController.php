@@ -10,4 +10,19 @@ class PageController extends Controller
     {
         return view('media-phet.simulation');
     }
+
+    public function index()
+    {
+         return view('media-phet.index');
+    }
+
+    public function room()
+    {
+        return view('media-phet.room');
+    }
+
+    public function akun()
+    {
+        return view('media-phet.akun');
+    }
 }

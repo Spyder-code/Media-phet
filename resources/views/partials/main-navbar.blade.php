@@ -95,7 +95,7 @@
                         <img src="img/logo.png" alt="">
                     </a></li>
                    <li ><a class="closeme" href="#"><i class="fa fa-times" ></i></a></li>
-                   <li class="fc-red out-link"><a class="" href="index.html">Home</a></li>
+                   <li class="fc-red out-link"><a class="" href={{ route('index') }}>Home</a></li>
                    <li>
                         <div class="link font-sky">Pages<i class="fa fa-chevron-down"></i></div>
                         <ul class="submenu font-sky">
