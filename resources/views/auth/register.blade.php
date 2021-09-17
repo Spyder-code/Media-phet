@@ -5,8 +5,8 @@
     <div class="limiter">
         <div class="container-login100 gradreg" style="background-image: url('img/bg/care-ser-bg.jpg');">
             <div class="wrap-login100 p-t-190 p-b-30">
-                <form class="login100-form validate-form"  method="POST" action="{{ route('login') }}">
-
+                <form class="login100-form validate-form"  method="POST" action="{{ route('register') }}">
+                    @csrf
 
                     <!-- <span class="login100-form-title p-t-20 p-4">
                         Login
@@ -45,7 +45,15 @@
                     </div>
 
                     <div class="wrap-input100 validate-input mb-3">
-                        <input class="input100" type="text" id="password-confirm" name="password_confirmation" placeholder="Nama Sekolah">
+                        <input class="input100" type="password" id="password-confirm" name="password_confirmation" placeholder="password confirm">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input mb-3">
+                        <input class="input100" type="text" id="school" name="school" placeholder="Nama Sekolah">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-university"></i>

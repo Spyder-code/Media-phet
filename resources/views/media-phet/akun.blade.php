@@ -14,14 +14,22 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-md-4">
-                    <div class="d-flex justify-content-center">
-                        <img src="{{ Auth::user()->avatar }}" class="img-fluid rounded">
+                    <div class="">
+                        <form action="{{ route('profile.update.image',['id'=>Auth::id()]) }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <input type="file" id="avatar" name="avatar" onchange="submit()" hidden>
+                            <div class="user-content">
+                                <label for="avatar" style="cursor: pointer"><img src="{{ Auth::user()->avatar }}" class="img-fluid rounded"></label>
+                            </div>
                     </div>
                     <h1 class="area-heading font-per style-two">{{ Auth::user()->name }}</h1>
                     <p class="heading-para">{{ Auth::user()->email }}</p>
                 </div>
                 <div class="col-12 col-md-4">
-                    <form class="login100-form validate-form">
+                    <form class="login100-form validate-form" method="POST" action="{{ route('profile.update',['id' => Auth::id()]) }}">
+                        @csrf
+                        @method('PUT')
                         <div class="wrap-input100 validate-input mb-3">
                             <input class="input100" type="text" value="{{ Auth::user()->name }}" id="name" name="name">
                         </div>
@@ -39,7 +47,9 @@
                     </form>
                 </div>
                 <div class="col-12 col-md-4">
-                    <form class="login100-form validate-form">
+                    <form class="login100-form validate-form" method="POST" action="{{ route('profile.update.password',['id' => Auth::id()]) }}">
+                        @csrf
+                        @method('PUT')
                         <div class="wrap-input100 validate-input mb-3" data-validate="Password is required">
                             <input class="input100" type="password" id="password" name="password" placeholder="Old Password">
                         </div>
