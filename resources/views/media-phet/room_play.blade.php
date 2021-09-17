@@ -11,8 +11,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-               <h2>Dimensi 3</h2>
-               <div class="bread-crumb-line"><span><a href="">Primary School / </a> </span> Math</div>
+                <h2>{{ $game->name }}</h2>
+                <div class="bread-crumb-line"><span><a href="">{{ $game->class }} / </a> </span> Math</div>
             </div>
         </div>
     </div>
@@ -30,28 +30,29 @@
                                 <tr>
                                     <td width="300px">Room created with</td>
                                     <td width="20px">:</td>
-                                    <td colspan="2" width="max-content"><b>Luay syauqillah</b></td>
+                                    <td colspan="2" width="max-content"><b>{{ $room->user->name }}</b></td>
                                 </tr>
                                 <tr>
                                     <td width="300px">Created on</td>
                                     <td width="20px">:</td>
-                                    <td colspan="2" width="max-content"><b>113 January 2021</b></td>
+                                    <td colspan="2" width="max-content"><b>{{ date('d F Y', strtotime($room->created_at)) }}</b></td>
                                 </tr>
                                 <tr>
                                     <td width="300px">Code</td>
                                     <td width="20px">:</td>
-                                    <td colspan="2" width="max-content"><b>hdasdhguaisduish1271389</b><button class="ml-2 btn btn-sm btn-rounded btn-secondary"><small>Copy</small></button></td>
+                                    <td colspan="2" width="max-content"><b>{{ $room->code }}</b><button class="ml-2 btn btn-sm btn-rounded btn-secondary"><small>Copy</small></button></td>
                                 </tr>
                                 <tr>
                                     <td width="300px">Link</td>
                                     <td width="20px">:</td>
-                                    <td colspan="2" width="max-content"><b>{{ route('room-play') }}</b><button class="ml-2 btn btn-sm btn-rounded btn-secondary"><small>Copy</small></button></td>
+                                    <td colspan="2" width="max-content"><b>{{ route('room.join',['code'=>$room->code]) }}</b><button class="ml-2 btn btn-sm btn-rounded btn-secondary"><small>Copy</small></button></td>
                                 </tr>
                             </thead>
                         </table>
                         <div class="card bg-primary" style="width:100%; height:550px">
 
                         </div>
+                        @if ($room->creator_id==Auth::id())
                         <div class="mt-5">
                             <table class="table table-bordered text-dark">
                                 <thead>
@@ -62,19 +63,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>@fat</td>
-                                    </tr>
+                                    @foreach ($participant as $item)
+                                        @if($item->user_id!=$room->creator_id)
+                                        <tr>
+                                            <th scope="row">{{ $loop->iteration }}</th>
+                                            <td>{{ $item->user->name }}</td>
+                                            <td>{{ $item->score }}</td>
+                                        </tr>
+                                        @endif
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -125,6 +126,16 @@
 @endsection
 
 @section('script')
-    <script src="static/scripts/responses.js"></script>
-    <script src="static/scripts/chat.js"></script>
+    <script src="{{ asset('/') }}static/scripts/responses.js"></script>
+    <script src="{{ asset('/') }}static/scripts/chat.js"></script>
+
+    @if (Auth::check())
+        <script src="{{ asset('js/app.js') }}"></script>
+        <script>
+            Echo.private(`room`)
+            .listen('SendMessage', (e) => {
+                console.log(e);
+            });
+        </script>
+    @endif
 @endsection

@@ -2,24 +2,24 @@
     "use strict";
 
 
- 
-    
-    //============= Preloader carousel ============ 
-    
+
+
+    //============= Preloader carousel ============
+
     $(window).on('load', function () {
         $('.preloader').delay(1000).fadeOut(600);
     });
 
     $(document).ready(function () {
-        
-   
-        jQuery('.venobox').venobox({
-            titlePosition: 'bottom'
-        });
 
-        jQuery('.about_video').venobox();
 
-        //============= Home page carousel ============ 
+        // jQuery('.venobox').venobox({
+        //     titlePosition: 'bottom'
+        // });
+
+        // jQuery('.about_video').venobox();
+
+        //============= Home page carousel ============
 
         $('.homepage-s').owlCarousel({
             loop: true,
@@ -29,12 +29,12 @@
             dots: false,
             navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
         });
-        
-        
+
+
         $(".homepage-s").on('translate.owl.carousel', function () {
             $('.slider-ext-wrap span').removeClass('fadeInDown animated').hide();
         });
-        
+
         $(".homepage-s").on('translated.owl.carousel', function () {
             $('.slider-ext-wrap span').addClass('fadeInDown animated').show();
         });
@@ -42,7 +42,7 @@
         $(".homepage-s").on('translate.owl.carousel', function () {
             $('.slider-ext-wrap h1').removeClass('flipInX animated').hide();
         });
-        
+
         $(".homepage-s").on('translated.owl.carousel', function () {
             $('.slider-ext-wrap h1').addClass('flipInX animated').show();
         });
@@ -50,7 +50,7 @@
         $(".homepage-s").on('translate.owl.carousel', function () {
             $('.slider-ext-wrap p').removeClass('fadeInUp animated').hide();
         });
-        
+
         $(".homepage-s").on('translated.owl.carousel', function () {
             $('.slider-ext-wrap p').addClass('fadeInUp animated').show();
         });
@@ -58,7 +58,7 @@
         $(".homepage-s").on('translate.owl.carousel', function () {
             $('.slider-ext-wrap a.first-btn').removeClass('fadeInLeft animated').hide();
         });
-        
+
         $(".homepage-s").on('translated.owl.carousel', function () {
             $('.slider-ext-wrap a.first-btn').addClass('fadeInLeft animated').show();
         });
@@ -66,13 +66,13 @@
         $(".homepage-s").on('translate.owl.carousel', function () {
             $('.slider-ext-wrap a.sec-btn').removeClass('fadeInRight animated').hide();
         });
-        
+
         $(".homepage-s").on('translated.owl.carousel', function () {
             $('.slider-ext-wrap a.sec-btn').addClass('fadeInRight animated').show();
         });
 
 
-         //============= Home page one  teacher carousel ============ 
+         //============= Home page one  teacher carousel ============
 
         $('.teacher-car-start').owlCarousel({
             loop: true,
@@ -97,8 +97,8 @@
                 }
             }
         });
-        
-         //============= Home page one  teacher carousel ============ 
+
+         //============= Home page one  teacher carousel ============
 
         $('.teacher-car-start-two').owlCarousel({
             loop: true,
@@ -121,7 +121,7 @@
             }
         });
 
-         //============= Home page one  testimonial ============ 
+         //============= Home page one  testimonial ============
 
         $('.testimonial-carousel').owlCarousel({
             loop: true,
@@ -131,7 +131,7 @@
             dots: false,
             items: 1,
         });
-        
+
         /*home page two parent speach */
         $('.parent-say-content').owlCarousel({
             animateOut: 'flipOutX',
@@ -142,8 +142,8 @@
             dots: true,
             items:1,
         })
-         //============= Home page two parent speach ============ 
-        
+         //============= Home page two parent speach ============
+
         $('.start-popular-tes').owlCarousel({
             animateOut: 'flipOutX',
             animateIn: 'fadeIn',
@@ -153,9 +153,9 @@
             dots: true,
             items: 1,
         });
-        
-         //============= Home page two parent speach ============ 
-     
+
+         //============= Home page two parent speach ============
+
         $('.srart-popular-tes').owlCarousel({
             animateOut: 'flipOutX',
             animateIn: 'fadeIn',
@@ -176,8 +176,8 @@
             }
         });
 
-         //============= Home page two tab-inside carousel ============ 
-        
+         //============= Home page two tab-inside carousel ============
+
         $('.tab-carousel').owlCarousel({
             loop: true,
             nav: false,
@@ -192,16 +192,16 @@
             dotsData: true
         });
 
-         //============= Product zoom carousel ============ 
-        
+         //============= Product zoom carousel ============
+
        $('.zoom-slider').owlCarousel({
              loop:true,
              nav:true,
              navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
              dots: false
          });
-        
-        //============= Testimonial carousel testimonial page ============ 
+
+        //============= Testimonial carousel testimonial page ============
         $('.tes-car-start').owlCarousel({
             loop: true,
             nav: false,
@@ -219,20 +219,20 @@
                 }
             }
         });
-        
-        //============= Search   ============ 
-        
+
+        //============= Search   ============
+
         $(".search a").on('click',function () {
             $(".search-input").toggleClass("active");
         });
-        
-        //============= Cart top show hide toggle   ============ 
-        
+
+        //============= Cart top show hide toggle   ============
+
          $(".cart-area a").on('click',function () {
             $(".cart-drop").toggleClass("active");
         });
-        
-        //============= Mobile Button  ============ 
+
+        //============= Mobile Button  ============
 
         $(".accordion-wrapper .mobile-open").on('click', function () {
             $(".accordion").toggleClass("active");
@@ -242,7 +242,7 @@
             $(this).parents('.accordion').removeClass("active");
         });
 
-        //============= scrollUp ============ 
+        //============= scrollUp ============
 
         $.scrollUp({
             scrollText: '<i class="fa fa-angle-up"></i>',
@@ -276,12 +276,12 @@
             gallery: 'gallery_01',
             cursor: 'pointer',
             galleryActiveClass: "active",
-       
+
         });
 
         //============= Counteractive  ============
-        
-        
+
+
         $('.counter').counterUp({
             delay: 35,
             time: 5000
@@ -291,45 +291,45 @@
         //============= wow js active  ============
 
        /* var wow = new WOW({
-            
-            boxClass: 'wow', 
-            animateClass: 'animated', 
+
+            boxClass: 'wow',
+            animateClass: 'animated',
             offset: 50,
             mobile: false,
             live: false,
             callback: function (box) {
-               
+
             },
             scrollContainer: null,
             resetAnimation: true,
         });
-        
+
         wow.init();*/
-        
-        
+
+
           $("#getting-started")
               .countdown("2018/12/01", function (event) {
                   $(this).text(
                       event.strftime('%D days %H:%M:%S')
                   );
               });
-        
+
     /*---------------------
         countdown
     --------------------- */
-        
+
         $('[data-countdown]').each(function() {
         var $this = $(this), finalDate = $(this).data('countdown');
         $this.countdown(finalDate, function(event) {
         $this.html(event.strftime('<span class="cdown day"><span class="time-count separator">%-D</span> <p class="cdown-tex">Days</p>  </span> <span class="cdown hour"><span class="time-count separator">%-H</span> <p class="cdown-tex">Hours</p>  </span> <span class="cdown minutes"><span class="time-count separator">%M</span> <p class="cdown-tex">Minutes</p>  </span> <span class="cdown"><span class="time-count">%S</span> <p class="cdown-tex">Secounds</p> </span>'));
           });
-        });	
-        
+        });
+
 
 
 }); // DOM Ready
 
-    
+
     //============= price-slider active  ============
 
 
