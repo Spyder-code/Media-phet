@@ -89,8 +89,8 @@
                                         @if($h->user_id==Auth::id())
                                         <tr>
                                             <th scope="row">{{ $h->id }}</th>
-                                            <td>{{ $h->room_id }}</td>
-                                            <td>{{ $h->room_id }}</td>
+                                            <td>{{ $h->room->game->name }}</td>
+                                            <td>{{ $h->room->code }}</td>
                                             <td>{{ $h->score }}</td>
                                         </tr>
                                         @endif

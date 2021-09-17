@@ -12,7 +12,8 @@ class PageController extends Controller
 {
     public function simulation()
     {
-        return view('media-phet.simulation');
+        $game = Game::all();
+        return view('media-phet.simulation', compact('game'));
     }
 
     public function index()

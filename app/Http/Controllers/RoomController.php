@@ -49,7 +49,7 @@ class RoomController extends Controller
             'code' => $code
         ]);
 
-        return redirect()->route('join',['code'=>$code]);
+        return redirect()->route('room.join',['code'=>$code]);
     }
 
     /**
