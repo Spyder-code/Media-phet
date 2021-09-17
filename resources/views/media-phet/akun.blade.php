@@ -85,18 +85,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($histori as $h)
+                                        @if($h->user_id==Auth::id())
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
+                                            <th scope="row">{{ $h->id }}</th>
+                                            <td>{{ $h->room_id }}</td>
+                                            <td>{{ $h->room_id }}</td>
+                                            <td>{{ $h->score }}</td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
+                                        @endif
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

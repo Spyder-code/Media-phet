@@ -27,7 +27,8 @@ class PageController extends Controller
 
     public function akun()
     {
-        return view('media-phet.akun');
+        $histori = Participant::all()->where('user_id',Auth::id());
+        return view('media-phet.akun', compact('histori'));
     }
 
     public function room()
