@@ -30,7 +30,7 @@
 
                     <div class="container-login100-form-btn pt-3">
                         <button class="login100-form-btn">
-                            Masuk
+                            Login
                         </button>
                     </div>
 
@@ -41,11 +41,22 @@
                     </div> -->
 
                     <div class="justify-content-center mt-3 w-full">
-                        <a class="txt1" href="{{ route('register') }}">
-                            Buat akun baru
-                            <i class="fa fa-long-arrow-right"></i>
-                        </a>
+                        <div class="d-flex justify-content-between">
+                            <a class="txt1 btn btn-success text-white btn-rounded" href="{{ url('/') }}">
+                                Home
+                                <i class="fa fa-home"></i>
+                            </a>
+                            <a class="txt1 ml-3 btn btn-primary text-white btn-rounded" href="{{ route('register') }}">
+                                Register
+                                <i class="fa fa-long-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
+                    {{-- <div class="container-login100-form-btn bg-warning pt-3">
+                        <a href="{{ route('register') }}" class="login100-form-btn">
+                            Buat akun baru
+                        </a>
+                    </div> --}}
                 </form>
             </div>
         </div>

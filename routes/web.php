@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,10 @@ Route::get('/', function () {
 Route::get('/blank', function () {
     return view('admin.blank');
 })->name('blank');
+Route::get('/logout-get', function () {
+    Auth::logout();
+    return back();
+})->name('logout-get');
 
 Auth::routes();
 
@@ -56,6 +61,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
 
 Route::middleware(['visitor'])->group(function () {
     Route::get('/simulation', [App\Http\Controllers\PageController::class, 'simulation'])->name('simulation');
+    Route::get('/room-play', [App\Http\Controllers\PageController::class, 'roomPlay'])->name('room-play');
     Route::get('/room', [App\Http\Controllers\PageController::class, 'room'])->name('room');
     Route::get('/index', [App\Http\Controllers\PageController::class, 'index'])->name('index');
     Route::get('/akun', [App\Http\Controllers\PageController::class, 'akun'])->name('akun');

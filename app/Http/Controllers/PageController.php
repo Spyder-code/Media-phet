@@ -16,13 +16,18 @@ class PageController extends Controller
          return view('media-phet.index');
     }
 
-    public function room()
+    public function roomPlay()
     {
-        return view('media-phet.room');
+        return view('media-phet.room_play');
     }
 
     public function akun()
     {
         return view('media-phet.akun');
+    }
+
+    public function room()
+    {
+        return view('media-phet.room');
     }
 }

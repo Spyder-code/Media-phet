@@ -28,9 +28,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $visitor = Visitor::all();
-        $user = User::all();
-        return view('admin.main',compact('visitor','user'));
+        $role = Auth::user()->role;
+        if ($role==1) {
+            $visitor = Visitor::all();
+            $user = User::all();
+            return view('admin.main',compact('visitor','user'));
+        } else {
+            return redirect()->route('akun');
+        }
+
     }
 
     public function profile()

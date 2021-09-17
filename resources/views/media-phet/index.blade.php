@@ -1,6 +1,6 @@
-@extends('layouts.main');
+@extends('layouts.user')
 
-@section('isi');
+@section('isi')
 
    <!-- Slides start -->
 <div class="slider-wrapper">
@@ -39,7 +39,7 @@
     </div>
 </div>
 <!-- Slides end -->
- 
+
 <!--Features area start-->
   <section class="feature-area-wrapper style-two">
       <div class="container-fluid">
@@ -62,10 +62,10 @@
                          <div class="fet-icon">
                             <img src="img/icon/feature-icon-2.png" alt="">
                          </div>
-                          
+
                           <h3>Active Learning</h3>
                           <p>Lorem ipsum dolor sit amet, consectetur Excepteur sint occaecat cupidatat non proident, sunt in cuculpa qui officiacuculpa qui officiacuculpa qui officia</p>
-                   
+
                   </div>
               </div>
               <!--Single Features-->
@@ -74,17 +74,17 @@
                          <div class="fet-icon">
                             <img src="img/icon/feature-icon-3.png" alt="">
                          </div>
-                         
+
                           <h3>Creative Lessons</h3>
                           <p>Lorem ipsum dolor sit amet, consectetur Excepteur sint occaecat cupidatat non proident, sunt in cuculpa qui officiacuculpa qui officiacuculpa qui officia</p>
-                   
+
                   </div>
               </div>
-              
+
           </div>
               </div>
           </div>
-          
+
       </div>
   </section>
 <!--Features area end-->
@@ -108,10 +108,10 @@
             </div>
        </div>
    </section>
-   
+
    <!--Wellcome area end-->
 
-   
+
    <!--Class area start-->
      <section class="choose-class-area bg-white">
         <div class="container-fluid custom-container">
@@ -174,7 +174,7 @@
         </div>
     </section>
     <!--Class area end-->
-    
+
     <!--Expect area start-->
     <section class="expect-area bg-white">
         <div class="container-fluid custom-container">
@@ -222,7 +222,7 @@
         </div>
     </section>
     <!--Expect area end-->
- 
+
  <!--Countdown for upcoming event end-->
 
 @endsection

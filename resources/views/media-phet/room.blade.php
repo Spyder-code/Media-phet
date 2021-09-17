@@ -1,111 +1,144 @@
-@extends('layouts.main')
+@extends('layouts.user')
 
-@section('isi');    
- 
+@section('isi')
+
  <!--Breadcrumb area start-->
- 
+
  <div class="text-bread-crumb d-flex align-items-center style-seven">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-               <h2>Dimensi 3</h2>
-               <div class="bread-crumb-line"><span><a href="">Primary School / </a> </span> Math</div>
+               <h2>Join Room and Discuss with your friend</h2>
+               <div class="bread-crumb-line"><span><a href="">for Science / </a> </span>& Math</div>
             </div>
         </div>
     </div>
-</div> 
+</div>
 
-<!--Breadcrumb area end-->
-    <!--Our class area start-->
+ <!--Breadcrumb area end-->
+
+     <!--Our class area start-->
     <div class="our-class-area">
-        <div class="container-fluid">
+       <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="area-heading font-per style-two">Room Simulation</h1>
+                    <p class="heading-para">we promised you that, we always try to take care of your childdren. Early child care is a very important and often overlooked component of child development</p>
+                </div>
+            </div>
             <div class="class-are-inner-width">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-12 col-md-6">
-                                <div class="sin-class wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="row no-gutters">
-                                        <div class="left-c">
-                                            <div class="class-con-top bgc-orange">
-                                                <h5>MATCH CLASS</h5>
-                                                <h6>Primary</h6>
-                                                <p>January 9, 2018</p>
-                                            </div>
-                                            <div class="class-con-bot">
-                                                <span>AGE GROUP<br> 2 - 5</span>
-                                                <span>$120 <br>Monthly</span>
-                                            </div>
-                                        </div>
-                                        <div class="r-class">
-                                            <img src="img/wellcome/wellcome-3-1.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
+                @if (!Auth::check())
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="alert alert-info">
+                                <h1 class="area-heading font-info style-two"><strong>Login required for access it</strong></h1>
                             </div>
-                            <div class="col-12 col-md-6">
-                                <div class="sin-class wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="row no-gutters">
-                                        <div class="left-c">
-                                            <div class="class-con-top bg-blue">
-                                                <h5>PAINTING CLASS</h5>
-                                                <h6>Advance</h6>
-                                                <p>February 10, 2018</p>
-                                            </div>
-                                            <div class="class-con-bot">
-                                                <span>AGE GROUP<br> 2 - 5</span>
-                                                <span>$140 <br>Monthly</span>
-                                            </div>
-                                        </div>
-                                        <div class="r-class">
-                                            <img src="img/class/class-h2.jpg" alt="">
-                                        </div>
+                        </div>
+                    </div>
+                @endif
+                <div class="row" style="{{ Auth::check()?'':'opacity: 50%; pointer-events:none;' }}">
+                    <div class="col-12 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1 class="area-heading text-success style-two">Create Room</h1>
+                                <form action="">
+                                    @csrf
+                                    <label>Simulation</label>
+                                    <select name="game_id" class="form-control" id="">
+                                        <option value="">A</option>
+                                        <option value="">B</option>
+                                        <option value="">C</option>
+                                    </select>
+                                    <div class="mt-2 float-right">
+                                        <button type="submit" class="btn btn-rounded btn-success">Create</button>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                            <div class="col-12 col-md-6">
-                                <div class="sin-class wow fadeInUp" data-wow-delay=".5s">
-                                   <div class="row no-gutters">
-                                        <div class="left-c">
-                                            <div class="class-con-top bg-green">
-                                                <h5>GROUP STUDY</h5>
-                                                <h6>Mid Level</h6>
-                                                <p>July 25, 2018</p>
-                                            </div>
-                                            <div class="class-con-bot">
-                                              <span>AGE GROUP<br> 3 - 8</span>
-                                               <span>$90 <br>Monthly</span>
-                                            </div>
-                                        </div>
-                                        <div class="r-class">
-                                            <img src="img/class/class-h3.jpg" alt="">
-                                        </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1 class="area-heading text-primary style-two">Create Room</h1>
+                                <form action="">
+                                    @csrf
+                                    <label>Room Code</label>
+                                    <input type="text" name="" id="" class="form-control">
+                                    <div class="mt-2 float-right">
+                                        <button type="submit" class="btn btn-rounded btn-primary">Join</button>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="sin-class wow fadeInUp" data-wow-delay=".5s">
-                                   <div class="row no-gutters" >
-                                      <div class="left-c">
-                                        <div class="class-con-top bg-red">
-                                            <h5>KIDS COMPETITION</h5>
-                                            <h6>Kindergarten</h6>
-                                            <p>September 12, 2018</p>
-                                        </div>
-                                        <div class="class-con-bot">
-                                          <span>AGE GROUP<br> 5 - 8</span>
-                                           <span>$120 <br>Monthly</span>
-                                        </div>
-                                        </div>
-                                        <div class="r-class">
-                                            <img src="img/class/class-h4.jpg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
+                @if (Auth::check())
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h1 class="area-heading text-primary style-two">My Room</h1>
+                                    <table class="table table-bordered text-dark">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Room Code</th>
+                                                <th scope="col">Participant Count</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Created on</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>@mdo</td>
+                                                <td>
+                                                    <div class="alert alert-success">Active</div>
+                                                </td>
+                                                <td>Mark</td>
+                                                <td class="d-flex justify-content-center">
+                                                    <form action="">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-rounded mx-2 btn-danger">Delete</button>
+                                                    </form>
+                                                    <form action="">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-rounded mx-2 btn-warning">Disabled</button>
+                                                    </form>
+                                                    <a class="btn btn-rounded mx-2 btn-primary" href="">Detail</a>
+                                                    <button type="button" class="btn btn-rounded mx-2 btn-secondary">Copy link</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>@fat</td>
+                                                <td>
+                                                    <div class="alert alert-secondary">Inactive</div>
+                                                </td>
+                                                <td>Jacob</td>
+                                                <td class="d-flex justify-content-center">
+                                                    <form action="">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-rounded mx-2 btn-danger">Delete</button>
+                                                    </form>
+                                                    <form action="">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-rounded mx-2 btn-success">Actived</button>
+                                                    </form>
+                                                    <a class="btn btn-rounded mx-2 btn-primary" href="">Detail</a>
+                                                    <button type="button" class="btn btn-rounded mx-2 btn-secondary">Copy link</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

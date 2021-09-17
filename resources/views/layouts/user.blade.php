@@ -1,43 +1,38 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <meta name="description" content="">
-        <title>KIDZCARE - Kindergarten Children Day Care Academics Multipurpose Responsive HTML5 Templates</title>
-        <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-
-        <!-- === webfont=== -->
-        <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
-        <!--Font awesome css-->
-        <link rel="stylesheet" href="{{ asset('/') }}css/font-awesome.min.css">
-        <!--Bootstrap-->
-        <link href="{{ asset('/') }}css/bootstrap.min.css" rel="stylesheet">
-        <!--UI css-->
-        <link rel="stylesheet" href="{{ asset('/') }}css/jquery-ui.css">
-        <!-- Venobox CSS -->
-        <link rel="stylesheet" href="{{ asset('/') }}css/venobox.css">
-        <!--Owl Carousel css-->
-        <link href="{{ asset('/') }}css/owl.carousel.css" rel="stylesheet">
-        <link href="{{ asset('/') }}css/owl.theme.css" rel="stylesheet">
-        <!--Animate css-->
-        <link href="{{ asset('/') }}css/animate.css" rel="stylesheet">
-        <!--Main Stylesheet -->
-        <link href="{{ asset('/') }}style.css" rel="stylesheet">
-        <!--Responsive Stylesheet -->
-        <link href="{{ asset('/') }}css/responsive.css" rel="stylesheet">
-
-    </head>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- === webfont=== -->
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+    <!--Font awesome css-->
+    <link rel="stylesheet" href="{{ asset('/') }}css/font-awesome.min.css">
+    <!--Bootstrap-->
+    <link href="{{ asset('/') }}css/bootstrap.min.css" rel="stylesheet">
+    <!--UI css-->
+    <link rel="stylesheet" href="{{ asset('/') }}css/jquery-ui.css">
+    <!-- Venobox CSS -->
+    <link rel="stylesheet" href="{{ asset('/') }}css/venobox.css">
+    <!--Owl Carousel css-->
+    <link href="{{ asset('/') }}css/owl.carousel.css" rel="stylesheet">
+    <link href="{{ asset('/') }}css/owl.theme.css" rel="stylesheet">
+    <!--Animate css-->
+    <link href="{{ asset('/') }}css/animate.css" rel="stylesheet">
+    <!--Main Stylesheet -->
+    <link href="{{ asset('/') }}style.css" rel="stylesheet">
+    <!--Responsive Stylesheet -->
+    <link href="{{ asset('/') }}css/responsive.css" rel="stylesheet">
+    @yield('style')
+</head>
 <body>
 
     <div class="preloader"></div>
 
-    @include('partials.main-navbar');
+    @include('partials.main-navbar')
 
-    @yield('isi');
+    @yield('isi')
 
     <!--Footer widget area start-->
     <section class="footer-widget style-three">
@@ -103,9 +98,6 @@
     </footer>
     <!--Footer area end-->
 
-
-
-
     <!-- === jqyery === -->
     <script src="{{ asset('/') }}js/jquery.min.js"></script>
     <!-- === bootsrap-min === -->
@@ -139,6 +131,6 @@
     <!-- === Main  js === -->
     <script src="{{ asset('/') }}js/main.js"></script>
 
+    @yield('script')
 </body>
-
 </html>

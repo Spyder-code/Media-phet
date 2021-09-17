@@ -19,7 +19,7 @@
 	7. INFANT PAGE
 	8. STAFF PAGE
 	9. TUTION AND FEE PAGE
-   10. SHOP PAGE 
+   10. SHOP PAGE
    11. SINGLE PRODUCT PAGE
    12. MOBILE MENU
    13. CONTACT PAGE
@@ -27,7 +27,96 @@
    15. SINGLE POST PAGE
    16. Home page three
 -----------------------------------------------------------------------------------*/
+.input100 {
+    font-family: Montserrat-Bold;
+    font-size: 15px;
+    line-height: 1.2;
+    color: #333333;
+    border: #005bea;
+    display: block;
+    width: 100%;
+    background: #fff;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 53px;
+}
 
+.wrap-input100 {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    border: #005bea;
+}
+
+.container-login100-form-btn {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.login100-form-btn {
+    font-family: Montserrat-Bold;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #e0e0e0;
+
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background: #333333;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+
+    position: relative;
+    z-index: 1;
+}
+
+.login100-form-btn::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    top: 0;
+    left: 0;
+    background: #005bea;
+    background: -webkit-linear-gradient(left, #005bea, #00c6fb);
+    background: -o-linear-gradient(left, #005bea, #00c6fb);
+    background: -moz-linear-gradient(left, #005bea, #00c6fb);
+    background: linear-gradient(left, #005bea, #00c6fb);
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    opacity: 0;
+}
+
+.login100-form-btn:hover {
+    background: transparent;
+    color: #fff;
+}
+
+.login100-form-btn:hover:before {
+    opacity: 1;
+}
 /*-------Font---------- */
 
 @font-face {
@@ -37,7 +126,7 @@
     font-weight: normal;
     font-style: normal;
   }
-  
+
   @font-face {
     font-family: 'Museo-500';
     src: url('fonts/Museo-500.eot?#iefix') format('embedded-opentype'),  url('fonts/Museo-500.otf')  format('opentype'),
@@ -45,7 +134,7 @@
     font-weight: normal;
     font-style: normal;
   }
-  
+
   @font-face {
     font-family: 'Museo-700';
     src: url('fonts/Museo-700.eot?#iefix') format('embedded-opentype'),  url('fonts/Museo-700.otf')  format('opentype'),
@@ -53,13 +142,13 @@
     font-weight: normal;
     font-style: normal;
   }
-  
-  
-  
+
+
+
   /*----------------------------------------*/
   /*  1.  Theme default CSS
   /*----------------------------------------*/
-  
+
   html {
       font-size: 100%;
       -webkit-text-size-adjust: 100%;
@@ -71,13 +160,13 @@
       -webkit-font-smoothing: antialiased;
       text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
   }
-  
+
   body {
     color: #919889;
     font-size: 14px;
     font-family: 'Museo-300';
   }
-  
+
   p {
     margin: 0;
     line-height: 24px
@@ -98,15 +187,15 @@
       font-family: 'Fredoka One', cursive;
       font-weight: 400;
   }
-  
+
   h1 {
     font-size: 50px;
   }
-  
+
   h5 {
     font-size: 18px;
   }
-  
+
   ul {
     padding: 0;
     margin: 0;
@@ -176,14 +265,14 @@
   .font-per{color: #8373ce!important}
   .font-w{color: #fff!important}
   .hide-sm-up{display: none}
-  
-  
-  
-  
+
+
+
+
   /*----------------------------------------*/
   /*  1.  Home page one css
   /*----------------------------------------*/
-  
+
   .top-bar{background: #03a9f4;color: #fff}
   .top-bar span {
       padding: 4px 0px;
@@ -391,7 +480,7 @@
   }
   .cart-sub-total span {margin-top: 0px;}
   .cart-checkout a i {font-size: 18px;}
-  
+
   /*-----------------Main menu area css -----------------*/
   .logo {
       padding-top: 36px;
@@ -478,12 +567,12 @@
       transition: all 0.3s ease 0s;
   }
   .mainmenu li:hover .sub-menu  {
-  
+
       visibility: visible;
       top: 100%;
       opacity: 1;
       -webkit-transition: all 0.3s ease 0s;
-      transition: all 0.3s ease 0s;    
+      transition: all 0.3s ease 0s;
   }
   .sub-menu li a{position: relative}
   .sub-menu li a::before {
@@ -640,7 +729,7 @@
       padding-top: 12px;
   }
   /*-----Slider css start -----------*/
-  
+
   .slider-text{color: #fefefe;text-align: center}
   .slider-text h1 {
       font-size: 92px;
@@ -771,9 +860,9 @@
   .slider-text .kids-care-btn {
       margin: 0 10px;
   }
-  
+
   /*Feature area start */
-  
+
   .feature-area-wrapper {
       padding: 55px 0px;
       background: #f1f6dd;
@@ -791,7 +880,7 @@
   .single-features:hover{background:  rgba(255, 255, 255, 0.29)!important;-ms-transform: translate(0px,-10px);
       -webkit-transform: translate(0px,-10px);
       transform: translate(0px,-10px);}
-  
+
   .single-features::before {
       content: '';
       background-image: url(img/bg/pattern.png);
@@ -811,7 +900,7 @@
       opacity: 1;
       -webkit-transition: all 0.5s;
       transition: all 0.5s;
-  
+
   }
   .single-features h3 {
       font-family: 'Fredoka One', cursive;
@@ -840,7 +929,7 @@
       transition: all 0.5s ease 0s;}
   .feature-area-wrapper .single-features:hover{background-color:#f8f8f8;-webkit-transition: all 0s;
       transition: all 0.0s;}
-  
+
   .feature-area-wrapper .single-features.bg-orange:hover h3{color:#ffa726;-webkit-transition: all 0.5s ease 0s;
       transition: all 0.5s ease 0s;}
   .feature-area-wrapper .single-features.bg-sky:hover h3 {color:#03a9f4;-webkit-transition: all 0.5s ease 0s;
@@ -849,7 +938,7 @@
       transition: all 0.5s ease 0s;}
   .feature-area-wrapper .single-features.bg-green:hover h3{color:#8bc34a;-webkit-transition: all 0.5s ease 0s;
       transition: all 0.5s ease 0s;}
-  
+
   .feature-area-wrapper .single-features.bg-orange:hover{border-bottom:10px solid #ffa726;-webkit-transition: all 0.5s ease 0s;
       transition: all 0.5s ease 0s;}
   .feature-area-wrapper .single-features.bg-sky:hover{border-bottom:10px solid #03a9f4;-webkit-transition: all 0.5s ease 0s;
@@ -858,9 +947,9 @@
       transition: all 0.5s ease 0s;}
   .feature-area-wrapper .single-features.bg-green:hover{border-bottom:10px solid #8bc34a;-webkit-transition: all 0.5s ease 0s;
       transition: all 0.5s ease 0s;}
-  
+
   /*wellcome area css*/
-  
+
   .wellcome-content h2 {
       line-height: 45px;
       margin-bottom: 25px;
@@ -886,9 +975,9 @@
   .area-heading img {
       margin-left: 28px;
   }
-  
+
   /*Choose class area*/
-  
+
   .choose-class-area {
       padding-top: 75px;
       padding-bottom: 50px;
@@ -999,9 +1088,9 @@
       margin-top: 5px;
       display: inline-block;
   }
-  
+
   /*call to action area*/
-  
+
   .call-to-action-area {
       background-image: url('img/bg/callto-bg.jpg');
       background-repeat: repeat-x;
@@ -1019,7 +1108,7 @@
       font-family: 'Museo-500';
       line-height: 38px;
   }
-  
+
   /*Teacherw  area*/
   .kids-care-teachers-area {
       padding: 60px 0 70px;
@@ -1039,7 +1128,7 @@
       -moz-transition:all 0.2s ;
       -o-transition:all 0.2s ;
       transition: all 0.2s ;
-      
+
   }
   .teacher-img {
       overflow: hidden;
@@ -1187,7 +1276,7 @@
       margin-left: -80px;
   }
   /*Events area start*/
-  
+
   .kids-care-event-area {padding: 75px 0 75px;}
   .single-event {
       border: 1px solid #eceaf2;
@@ -1236,9 +1325,9 @@
       display: inline-block;
   }
   .kids-care-btn .fa {margin-right: 5px;}
-  
+
   /*Gllery area start */
-  
+
   .kids-care-gallery {
       background-image: url('img/bg/gallery-bg.jpg');
       background-repeat: repeat;
@@ -1274,7 +1363,7 @@
       color: #fff;
       text-align: center;
   }
-  
+
   .sin-gallery .gallery-content {
       position: absolute;
       width: 100%;
@@ -1323,7 +1412,7 @@
       opacity: 1;
       -webkit-transition: .25s ease-out;
       transition: .25s ease-out;
-      
+
   }
   .gallery-content p {
       font-size: 15px;
@@ -1332,7 +1421,7 @@
       transform: translateY(50px);
       -webkit-transition-delay: .1s;
       transition-delay: .1s;
-     
+
   }
   .sin-gallery:hover p {
       -webkit-transform: translateY(0px);
@@ -1341,9 +1430,9 @@
         -webkit-transition: .25s ease-out;
       transition: .25s ease-out;
       margin-top: -5px;
-      
+
   }
-  
+
   .gallery-content a {
       color: #000;
       font-size: 15px
@@ -1363,10 +1452,10 @@
       text-align: center;
       margin-bottom: 47px;
   }
-  
-  
+
+
   /*What to do area start*/
-  
+
   .kids-care-to-do{background-image: url('img/bg/todo-area-bg.jpg');
   background-position: center;background-size: cover;background-repeat: no-repeat;
   }
@@ -1406,9 +1495,9 @@
       margin-left: 5px;
   }
   .in {margin-top: 9px;}
-  
+
   /*Footer widget area */
-  
+
   .footer-widget {
       background-image: url('img/bg/footer-top-bg-2.png');
       padding: 165px 0 50px;
@@ -1519,7 +1608,7 @@
       overflow: hidden;
   }
   /*Footer bottom */
-  
+
   .footer-area p {
       padding-top: 11px;
   }
@@ -1540,7 +1629,7 @@
       background-repeat: repeat-x;
       top: -29px;
   }
-  
+
   .footer-area .social-icon{position: relative;}
   .footer-area .social-icon::after {
       content: '';
@@ -1555,7 +1644,7 @@
       top: 17px;
   }
   /*News leter area*/
-  
+
   .newsletter-area{
       height: 200px;
       background-image: url('img/bg/news-letter-bg.jpg');
@@ -1585,7 +1674,7 @@
       line-height: 38px;
   }
   .newsletter-area h4 {
-  
+
       font-size: 30px;
       color: #fff;
   }
@@ -1594,7 +1683,7 @@
       margin-top: 10px;
   }
   /*Routine */
-  
+
   .kids-care-routine-area {
       height: auto;
       padding: 65px 0px;
@@ -1682,11 +1771,11 @@
       background: #1d89ba;
   }
   .res-routine.collapse-wrapper {display: none;}
-  
+
   /*----------------------------------------*/
   /*  2.  Home page two css
   /*----------------------------------------*/
-  
+
   .heading-para {
       color: #656f73;
       text-align: center;
@@ -1763,10 +1852,10 @@
       color: #b6cf4d;;
       background: #fff;
   }
-  
-  
+
+
   /*------------Menu style two  css---------------- */
-  
+
   .mainmenu-two li {
       display: inline-block;
       position: relative;
@@ -1793,7 +1882,7 @@
       content: '';
   }
   .menu-area-two{background-image: url('img/bg/menu-two-bg.jpg');
-  
+
       background-position: center;
       background-size: cover;
   }
@@ -1834,13 +1923,13 @@
       transition: all 0.3s ease 0s;
   }
   .mainmenu-two li:hover .sub-menu  {
-  
+
       visibility: visible;
       top: 100%;
       opacity: 1;
       -webkit-transition: all 0.3s ease 0s;
       transition: all 0.3s ease 0s;
-      
+
   }
   .mainmenu-two .sub-menu a {
       padding: 10px;
@@ -1852,10 +1941,10 @@
   }
   .mainmenu-two li .sub-menu a::after,.mainmenu-two li .mega-menu a::after {
       content: '';
-  
+
   }
   /*---------------Mega menu two css ---------------------*/
-  
+
   .mainmenu-two li:hover .mega-menu {
       visibility: visible;
       top: 100%;
@@ -1909,9 +1998,9 @@
   .mainmenu-two li .mega-menu a {
       padding-left: 0px;
   }
-  
+
   /*-------------------------Footer widget  area two--------------*/
-  
+
   .footer-widget.style-two {
       background-image: url('img/bg/footer-two-bg.png');
       background-size: auto;
@@ -1922,9 +2011,9 @@
   .footer-area.style-two::before {
       background: none;
   }
-  
+
   /*------------Features area two  css---------------- */
-  
+
   .feature-area-two {
       padding: 70px 0px;
       background: #f8f8f8;
@@ -1968,9 +2057,9 @@
       -o-transition: all 0.5s ease 0s;
       transition: all 0.5s ease 0s;
   }
-  
+
   /*----------About three css----------------*/
-  
+
   .about-kids-three{
       padding: 70px 0px;
       background: #f8f8f8;
@@ -2003,13 +2092,13 @@
       text-align: center;
   }
   .align-left .sin-wel-3-con{text-align: left}
-  
+
   /*------------Class area two  css---------------- */
-  
+
   .our-class-area {background: #f8f8f8;padding:  70px 0px}
   .class-are-inner-width {
       width: 70%;
-  
+
       margin: 0 auto;
   }
   .sin-class {
@@ -2056,7 +2145,7 @@
       width: 50%;
   }
   /*------------Facilities area css --------------------------------*/
-  
+
   .video_content_two {
       width: 100%;
       height: 500px;
@@ -2066,7 +2155,7 @@
       background-position: center;
       background-size: cover;
       -webkit-box-shadow: 0px 25px 40px 0px rgba(63, 85, 97, 0.25);
-              box-shadow: 0px 25px 40px 0px rgba(63, 85, 97, 0.25); 
+              box-shadow: 0px 25px 40px 0px rgba(63, 85, 97, 0.25);
   }
   .facilities-area {
       background-image: url('img/bg/facilities-bg.png');
@@ -2103,9 +2192,9 @@
       font-family: 'Museo-500';
       padding-right: 30px;
   }
-  
+
   /*--------Service area ---------------*/
-  
+
   .ser-det {
       padding-left: 40px;
       overflow: hidden;
@@ -2126,9 +2215,9 @@
       padding-right: 15px;
       line-height: 26px;
   }
-  
+
   /*-------------children service area-----------*/
-  
+
   .childcare-service {
       padding: 105px 0px;
       background-image: url('img/bg/care-ser-bg.jpg');
@@ -2164,9 +2253,9 @@
       margin-top: 35px;
       margin-bottom: 40px;
   }
-  
+
   /*-----------event and choose area css---------------*/
-  
+
   .event-and-choose{padding: 70px 0px;background: #f8f8f8}
   .event-and-choose .heading-para {
       width: 100%;
@@ -2229,9 +2318,9 @@
   }
   .card {border: none;}
   .tog-plus {float: right;}
-  
+
   /*----------Play area css ---------------*/
-  
+
   .play-area{padding: 70px 0px;
       background-position: center;
       background-size: cover;
@@ -2259,9 +2348,9 @@
       text-align: left;
       margin-bottom: 50px;
   }
-  
+
   /*--------parent say area css-------------*/
-  
+
   .parent-say-area {
       padding: 70px 0px;
       background-image: url('img/bg/par-tes-bg.jpg');
@@ -2286,7 +2375,7 @@
       text-align: center;
       top: -45px;
   }
-   
+
   .parent-say-content.owl-theme .owl-controls .owl-dot span {
       background: #ff8581 none repeat scroll 0 0;
       opacity: 1;
@@ -2298,7 +2387,7 @@
       width: auto;
   }
   /*---------- News area css -------------*/
-  
+
   .latest-news-area {
       background: #f8f8f8;
       padding: 80px 0px 90px;
@@ -2376,11 +2465,11 @@
               box-shadow: 2px 14px 21px #c6c1c1;
   }
   /*----------Newsletter two area css-----------------*/
-  
+
   .newsletter-two{min-height: 170px;
       background-image: url('img/bg/news-letter-bg-2.jpg');background-repeat: repeat-x;
       background-position: center;
-      
+
   }
   .newsletter-two span {
       font-size: 40px;
@@ -2415,9 +2504,9 @@
       font-size: 17px;
       cursor: pointer;
   }
-  
+
   /*--------Quick contact area-------------*/
-  
+
   .quick-contact-two {
       padding: 70px 0px;
   }
@@ -2435,13 +2524,13 @@
       -moz-transition: all 0.9s;
       -o-transition: all 0.9s;
       transition: all 0.9s;
-      
+
   }
   .sin-quick-con:hover .sin-co-img{box-shadow:2px 14px 21px #c6c1c1 ;-webkit-box-shadow:2px 14px 21px #c6c1c1 ; transform: translateY(0px);
       -webkit-transition: all 0.3s ease-in;
       -moz-transition: all 0.3s ease-in;
       -o-transition: all 0.3s ease-in;
-      transition: all 0.3s ease-in;} 
+      transition: all 0.3s ease-in;}
   .sin-quick-con h4 {
       font-size: 20px;
       text-transform: uppercase;
@@ -2462,8 +2551,8 @@
       border-radius: 2px;
   }
   /*-------------Tab carousel area -----------------*/
-  
-  
+
+
   .play-area .owl-carousel .owl-stage-outer::before {
       content: '';
       position: absolute;
@@ -2490,16 +2579,16 @@
       padding: 4px;
       margin: 0 auto;
   }
-  
+
   .tab-carousel.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
       background: #fff;
   }
   .tab-carousel.owl-theme .owl-dots .owl-dot span {
       background: #ff8581;
   }
-  
+
   /*------------countdown area---------------*/
-  
+
   .sin-counter {
       text-align: center;
       font-family: 'Fredoka One', cursive;
@@ -2513,12 +2602,12 @@
   .counter-area{height: 140px;background-image: url('img/bg/counter-bg.jpg');
   background-position: center;background-size: cover;background-position: center;
   }
-  
-  
+
+
   /*----------------------------------------*/
   /*  3.  About us page css
   /*----------------------------------------*/
-  
+
   .about_video {
       width: 86px;
       text-align: center;
@@ -2590,9 +2679,9 @@
   .video_content:hover h3 {
       font-size: 30px;
   }
-  
+
   /*-----------Service area three---------------*/
-  
+
   .sing-three-ser {
       text-align: center;
   }
@@ -2621,9 +2710,9 @@
       color: #656f73;
       margin-bottom: 35px;
   }
-  
+
   /*---------Even can teach area---------------*/
-  
+
   .wellcome-content span {
       font-size: 24px;
       font-family: 'Fredoka One', cursive;
@@ -2636,9 +2725,9 @@
       background-size: cover;
       background-position: bottom;
   }
-  
+
   /*------About us area start ------*/
-  
+
   .middle-button-area {
       text-align: center;
       padding: 120px 0px;
@@ -2653,11 +2742,11 @@
       margin-bottom: 20px;
       font-family: 'Fredoka One', cursive;
   }
-  
+
   /*----------------------------------------*/
   /*  4.  kindergarten page css
   /*----------------------------------------*/
-  
+
   .image-breadcrumb.style-two{background-image: url('img/bg/bread-crumb-2.jpg')}
   .text-bread-crumb img {
       width: 100%;
@@ -2688,7 +2777,7 @@
       float: right;
       font-size: 14px;
   }
-  
+
   /*-----Kindergarten top content area ----------*/
   .kin-top-con p {
       font-size: 16px;
@@ -2742,10 +2831,10 @@
       background-image: url('img/bg/Kindergarten-top-con.jpg');
       background-repeat: no-repeat;
       background-position: bottom right;
-      
+
   }
   /*-----Kindergarten routine area css-------------*/
-  
+
   .sin-kin-routine {
       text-align: center;
       color: #fff;
@@ -2765,7 +2854,7 @@
       font-size: 18px;
       font-family: 'Museo-300';
   }
-  
+
   .sin-kin-routine span {
       font-size: 16px;
       font-family: 'Museo-500';
@@ -2778,9 +2867,9 @@
   .kindergarten-daily-routine .kids-care-btn {
       margin-top: 50px;
   }
-  
+
   /*-------Why kindergarten kids care css--------------*/
-  
+
   .about-six {
       background-image: url('img/bg/kin-routine-bg.jpg');
       background-repeat: no-repeat;
@@ -2797,9 +2886,9 @@
       padding-right: 0px;
       font-family: 'Museo-500';
   }
-  
+
   /*------Send message area css ----------------*/
-  
+
   .send-message-area textarea {
       width: 100%;
       height: 180px;
@@ -2817,7 +2906,7 @@
       background-size: cover;
       padding: 80px 0px;
       text-align: center
-      
+
   }
   .send-message-area input,.send-message-area select {
       width: 100%;
@@ -2852,11 +2941,11 @@
       margin-top: 15px;
       font-size: 14px;
   }
-  
+
   /*----------------------------------------*/
   /*  5.  Facilities page css
   /*----------------------------------------*/
-  
+
   .text-bread-crumb.style-four {
       text-align: center;
       z-index: 99;
@@ -2936,9 +3025,9 @@
       text-align: center
   }
   .download-area h3{font-family: 'Museo-500';color: #cc4b4c}
-  
+
   /*-----Video area start-------------*/
-  
+
   .video-area {
       padding: 65px 0px 140px;
       background-image: url('img/bg/vid-pattern.jpg');
@@ -2951,7 +3040,7 @@
               box-shadow: 2px 14px 21px #c6c1c1;
   }
   /*-----Enroll area start -------------*/
-  
+
   .enroll-area {
       padding: 0px 0 110px;
       background-image: url('img/bg/per-bg.png');
@@ -2966,20 +3055,20 @@
       margin-top: 40px;
       margin-bottom: 50px;
   }
-  
+
   /*-------------newsletter area---------------*/
   .newsletter-area.bg-two{background-image: url('img/bg/news-letter-bg-3.jpg');}
-  
-  
+
+
   /*----------------------------------------*/
   /*  6.  Infant page css
   /*----------------------------------------*/
-  
+
   .main-menu-area.style-per::after {
-  
+
       background: url('img/bg/menu-bg-3.png');
       background-repeat: repeat-x;
-  
+
   }
   .text-bread-crumb.style-five {
       text-align: center;
@@ -3111,9 +3200,9 @@
       border-radius: 0px;
       background: #f3f2f9;
   }
-  
+
   /*----------Infant care--------------------- */
-  
+
   .focus-care-area {
       background: #f8f8f8;
       padding: 70px 0px;
@@ -3180,12 +3269,12 @@
   .right-schedule ul li i {margin-right: 8px;}
   .schedule-table {margin-top: 30px;}
   .schedule-wrapper {padding-top: 60px;}
-  
-  
+
+
   /*----------------------------------------*/
   /*  7.  Staff page css
   /*----------------------------------------*/
-  
+
   .main-menu-area.style-four::after {
       content: '';
       width: 100%;
@@ -3287,7 +3376,7 @@
   }
   .sin-staff:hover:after{
       width: 100%;
-  
+
   }
   .staf-img {
       margin-bottom: 24px;
@@ -3322,18 +3411,18 @@
   .staff-soc ul li a:hover {
       -webkit-box-shadow: -3px 4px 1px 0px rgba(223, 223, 223, 0.4);
               box-shadow: -3px 4px 1px 0px rgba(223, 223, 223, 0.4);
-      
+
   }
   .staff-soc ul li.fab a {background: #3a5897}
   .staff-soc ul li.tw a {background: #49c9f2}
   .staff-soc ul li.lin a {background: #0775b7}
   .staff-soc ul li.ig a {background: #3b749f}
-  
-  
+
+
   /*----------------------------------------*/
   /*  1.  Testimonial page css
   /*----------------------------------------*/
-  
+
   .main-menu-area.style-five-red::after {
       content: '';
       width: 100%;
@@ -3404,7 +3493,7 @@
       margin-bottom: 60px;
   }
   /*---------Testimonial two area css---------------*/
-  
+
   .testi-two-carousel h3 {
       font-size: 25px;
       color: #444444;
@@ -3450,9 +3539,9 @@
   .testi-two-carousel {padding-top: 40px;}
   .tes-car-start.owl-theme .owl-dots .owl-dot span {background: #dadada;}
   .tes-car-start.owl-theme .owl-dots .owl-dot.active span {background: #f44336;}
-  
+
   /*-----Testimonial three area css -----------*/
-  
+
   .testimonial-three {
       background-image: url('img/bg/testimonial-dot-bg.jpg');
       background-repeat: no-repeat;
@@ -3488,11 +3577,11 @@
       height: 400px;
       padding-top: 146px;
   }
-  
+
   /*----------------------------------------*/
   /*  1.  Tution & fee page css
   /*----------------------------------------*/
-  
+
   .main-menu-area.tution-ver::after {background: url('img/bg/menu-bg-t.png');}
   .text-bread-crumb.style-seven {
       text-align: center;
@@ -3539,7 +3628,7 @@
       font-size: 25px;
       color: #444;
       font-family: 'Museo-500';
-      
+
   }
   .tution-top .heading-style-two{margin-bottom: 25px;}
   .tution-top h6 {
@@ -3616,19 +3705,19 @@
       line-height: 32px;
       font-family: 'Museo-300';
   }
-  .sin-tab-fot p:nth-child(1){color: #8373ce} 
-  .sin-tab-fot p:nth-child(3){color: #03a9f4} 
+  .sin-tab-fot p:nth-child(1){color: #8373ce}
+  .sin-tab-fot p:nth-child(3){color: #03a9f4}
   .sin-tab-fot {padding-bottom: 25px;
   }
   .tution-top {padding-top: 100px;}
   .tution-top-right {text-align: center;}
   .tuton-top-inner {padding-bottom: 45px;}
   .dis-image {margin-top: -70px;}
-  
+
   /*----------------------------------------*/
   /*  9.  Shop page css
   /*----------------------------------------*/
-  
+
   .sort-by {
       float: left;
       width: 50%;
@@ -3718,7 +3807,7 @@
   }
   .sin-product:hover .pro-bottom:after{right: 0px;left: 0; -webkit-transition: all 0.5s ease 0s;
       -o-transition: all 0.5s ease 0s;
-      transition: all 0.5s ease 0s;} 
+      transition: all 0.5s ease 0s;}
   .sin-product {
       margin-bottom: 30px;
   }
@@ -3881,7 +3970,7 @@
       padding-bottom: 90px;
       padding-top: 53px;
   }
-  
+
   .list-product .pro-price {
       font-size: 18px;
       color: #ee0f0f;
@@ -3916,7 +4005,7 @@
       padding: 15px;
       background: #fff;
   }
-  
+
   .list-product:hover .pro-bottom::after {
       right: 0px;
       left: 0;
@@ -3982,12 +4071,12 @@
       bottom: 30px;
       opacity: 1;
       visibility: visible;
-      
-  } 
+
+  }
   /*----------------------------------------*/
   /*  10.  Product page css
   /*----------------------------------------*/
-  
+
   .zoom-slider.owl-theme .owl-nav [class*="owl-"] {
       color: #979fa2;
       font-size: 23px;
@@ -4450,9 +4539,9 @@
       text-align: center;
       margin-bottom: 45px;
   }
-  
-  
-  
+
+
+
   /*----------------------------------------*/
   /*  11.  Mobile accordion menu start-
   /*----------------------------------------*/
@@ -4472,9 +4561,9 @@
   .accordion  .link a:hover {
       color: #0f0606;
   }
-  
+
   .accordion li:last-child .link { border-bottom: 0; }
-  
+
   .accordion li i {
     position: absolute;
     top: 16px;
@@ -4697,8 +4786,8 @@
   /*----------------------------------------*/
   /*  13.  Blog page css
   /*----------------------------------------*/
-  
-  
+
+
   .blog-page {
       background: #f8f8f8;
       padding: 50px 0px;
@@ -4710,7 +4799,7 @@
       background: url(img/bg/menu-bg-blue.png);
   }
   .text-bread-crumb.style-six.blue {
-  
+
       background-repeat: repeat-x;
       background-image: url(img/bg/blog-bc-bg.png);
       background-size: auto;
@@ -4719,7 +4808,7 @@
   /*----------------------------------------*/
   /*  14.  Single Post page
   /*----------------------------------------*/
-  
+
   .post-page {
       background: #fcfcfc;
       padding: 100px 0px;
@@ -4797,7 +4886,7 @@
       background: #fff;
       padding: 15px;
       -webkit-box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06);
-              box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06); 
+              box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06);
       position: relative;
   }
   .post-details {padding: 0 20px;}
@@ -4912,7 +5001,7 @@
       margin: 0;
       margin-top: 45px;
       -webkit-box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06);
-              box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06); 
+              box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06);
   }
   .sin-realated-post img {
       border: 10px solid #efefef;
@@ -4929,7 +5018,7 @@
       margin: 0;
       margin-top: 45px;
       -webkit-box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06);
-              box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06); 
+              box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06);
   }
   .comment-reply-link {
       float: right;
@@ -4946,7 +5035,7 @@
       margin: 0;
       margin-top: 45px;
       -webkit-box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06);
-              box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06); 
+              box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06);
   }
   .comments-form input {
       width: 100%;
@@ -5012,7 +5101,7 @@
       margin-bottom: 30px;
       padding: 40px 30px;
       -webkit-box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06);
-              box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06); 
+              box-shadow: 0px 0px 8px 0px rgba(85, 85, 85, 0.06);
   }
   .top-writer {
       text-align: center;
@@ -5053,16 +5142,16 @@
       cursor: pointer;
   }
   .search-btn:hover{
-  
-  
+
+
       text-shadow: 0px 2px 1.46px rgba(0, 0, 0, 0.42);
       -webkit-transition: all 0.3s;
       -o-transition: all 0.3s;
       transition: all 0.3s;
       background: #333!important;
-  
+
   }
-  
+
   .sb-img {
       width: 96px;
       float: left;
@@ -5100,8 +5189,8 @@
   .cat-post a:hover{color: #ffa725}
   .cat-post a span{float: right}
   .advertisement img{width: 100%}
-  
-  
+
+
   @keyframes rotate {
       0% {
           transform: rotate(0deg);
@@ -5112,7 +5201,7 @@
       100% {
           transform: rotate(0deg);
       }
-      
+
   }
   .single-to-do:hover .to-do-img {
       animation: rotate 0.5s;
@@ -5136,8 +5225,8 @@
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
-  
-  
+
+
   .preloader {
     background-color: #ffffff;
     background-image: url("img/icon/preloader.gif");
@@ -5149,12 +5238,12 @@
     top: 0px;
     width: 100%;
       height: 100%;
-    z-index: 99999999999; 
+    z-index: 99999999999;
   }
   /*----------------------------------------*/
   /*  16.  Home page three
-  /*----------------------------------------*/ 
-  
+  /*----------------------------------------*/
+
   .top-bar.style-three {
       background: #ddd609;
   }
@@ -5308,7 +5397,7 @@
       box-shadow: none;
   }
   .class-name{width: 0;
-  
+
   position: relative;
       height: 70px;
       width: 240px;
@@ -5327,7 +5416,7 @@
       left: 0;
       top: -52px;
       z-index: 0;
-      
+
   }
   .class-name h5 {
       font-size: 20px;
@@ -5346,7 +5435,7 @@
       left: 0;
       top: -52px;
       z-index: 0;
-      
+
   }
   .class-img-two {
       padding: 10px;
@@ -5355,7 +5444,7 @@
   .class-name.bg-red::before{border-color: transparent #f44336  transparent;}
   .class-name.bg-sky::before{border-color: transparent #03a9f4  transparent;}
   .class-name.bg-green::before{border-color: transparent #8bc34a   transparent;}
-  
+
   .expect-area {
       background-image: url(img/bg/expect.png);
       background-repeat: no-repeat;
@@ -5379,7 +5468,7 @@
   }
   .ex-detail p {font-size: 15px;}
   .area-heading.st-two.font-w::after {background-image: url(img/icon/heading-icon2.png);}
-  
+
   .style-b.single-teacher .teacher-img {
       border-radius: 0;
   }
@@ -5390,7 +5479,7 @@
       text-align: center;
       padding-top: 0;
       padding-bottom: 30px;
-      
+
   }
   .single-teacher.style-b {
       background: #fff;
@@ -5515,11 +5604,11 @@
   }
   .sin-pop-tes.color-per .con-part::after {
       background-image: url(img/bg/tes-three-bg-s1.png);
-  
+
   }
   .sin-pop-tes.color-red .con-part::after {
       background-image: url(img/bg/tes-three-bg-s2.png);
-  
+
   }
   .con-part::after {
       position: absolute;
@@ -5567,10 +5656,10 @@
       transition: all 0.6s;
   }
   .sin-pop-tes:hover .pt-img::after {
-      
+
       top: 93px;
       left: 41px;
-  
+
       transform: rotate(50deg);
       -webkit-transition: all 0.6s;
       -moz-transition: all 0.6s;
@@ -5614,7 +5703,7 @@
       background: #f44336;
   }
   .kids-care-event-area{}
-  
+
   .sp-age p {
       font-size: 18px;
       color: #fff;
@@ -5666,7 +5755,7 @@
       padding-top: 105px;
   }
   .kids-care-gallery.style-three .filter-menu li {background: #325713;}
-  .kids-care-gallery.style-three .filter-menu li:hover,.kids-care-gallery.style-three .filtr-active {background: #244806 !important;} 
+  .kids-care-gallery.style-three .filter-menu li:hover,.kids-care-gallery.style-three .filtr-active {background: #244806 !important;}
   .kids-care-gallery.style-three::after {
       content: '';
       position: absolute;
@@ -5677,21 +5766,21 @@
       top: -96px;
       left: 0;
   }
-  
+
   .area-heading.st-two.font-per::after {
       background-image: url(img/icon/heading-icon4.png);
   }
-  
+
   .sin-lat-n3 {
       text-align: center;
       border-radius: 25px;
   }
-  
+
   .sin-lat-n3 h5 {
       font-size: 20px;
       color: #ffa726
   }
-  
+
   .ln3-cont {
       padding: 30px 40px 15px;
       border: 2px solid #f1f0f0;
@@ -5699,23 +5788,23 @@
       border-bottom-left-radius: 15px;
       border-bottom-right-radius: 15px;
   }
-  
+
   .ln3-cont p {
       color: #80817e;
       font-size: 15px;
       padding-bottom: 24px;
       padding-top: 14px;
   }
-  
+
   .aut-date {
       padding-top: 9px;
       padding-bottom: 8px;
   }
-  
+
   .aut-date a span {
       color: #80817e;
       font-size: 15px;
-      
+
       padding: 0 10px;
   }
   .aut-date a{border-right: 1px solid #80817e;}
@@ -5723,7 +5812,7 @@
   .aut-date span i {
       margin-right: 8px;
   }
-  
+
   .lnc-meta {
       display: block;
       overflow: hidden;
@@ -5731,14 +5820,14 @@
       padding-top: 15px;
       border-top: 1px solid #ebebeb;
   }
-  
+
   .sin-lnc span {
       color: #ffa726;
       font-size: 15px;
   }
   .sin-lnc span i{margin-right: 5px;}
   .sin-lnc p{padding: 0px}
-  
+
   .lnc-meta .sin-lnc {
       float: left;
       width: 30%;
@@ -5750,7 +5839,7 @@
   .sin-lat-n3 .kids-care-btn {
       font-size: 20px;
       padding: 4px 14px;
-  
+
   }
   .latest-news-three {
       padding: 140px 0 60px;
@@ -5920,7 +6009,7 @@
       -webkit-transition: all 0.3s ease 0s;
       transition: all 0.3s ease 0s;
   }
-  
+
   /*----------------------------------------*/
   /*  17.  Neutrition page
   /*----------------------------------------*/
@@ -6001,7 +6090,7 @@
       font-size: 16px;
       line-height: 26px;
   }
-  
+
   /*----------------------------------------*/
   /*  18.  Staff version two page
   /*----------------------------------------*/
@@ -6024,7 +6113,7 @@
       z-index: 999;
       position: absolute;
   }
-  
+
   .sin-staff-right-con p{font-size: 14px;}
   .sin-staff-right-con p {
       line-height: 26px;
@@ -6044,7 +6133,7 @@
   }
   .sin-staff-with-con:hover .sin-staff-right-con::after {
       background-image: url(img/icon/staff-arrowl-green.png);
-  
+
   }
   .sin-staff-right-con.arro-l::before {
       background-image: url(img/icon/staff-arrow.png);
@@ -6062,19 +6151,19 @@
   }
   .sin-staff-with-con:hover .sin-staff-right-con::before{background-image: url(img/icon/staff-arrow-g.png);}
   .stuff-area.style-two{padding: 20px 0px;}
-  
+
   /*----------------------------------------*/
   /*  19.  Gallery page
   /*----------------------------------------*/
-  
+
   .sin-gallery.style-b {
       background: none;
       text-align: center;
   }
   .kids-care-gallery.style-two{background-image: none}
-  
+
   .sin-gallery .gallery-overlay {
-      padding: 0px; 
+      padding: 0px;
   }
   .sin-gallery.style-b:hover img {
       opacity: 0.2;
@@ -6082,20 +6171,20 @@
   .sin-gallery.style-b .gallery-content h4,.sin-gallery.style-b .gallery-content p {
       color: #631659;
   }
-  
+
   .sin-gallery.style-b .gallery-content .fa {
       background-color: rgba(150, 45, 141, 0.89);
       color: #fff;
   }
   .sin-gallery.style-b .gallery-content a {
-  
+
       border: 4px solid rgba(255, 255, 255, 0.71);
-  
+
   }
   .sin-gallery.style-b:hover .gallery-content h4,.sin-gallery.style-b:hover .gallery-content p {
       -webkit-transform: translateY(-14px);
       transform: translateY(-14px);
-  
+
   }
   .kids-care-gallery.style-two .filter-menu li:hover {
       background: rgba(150, 45, 141, 0.89)!important;
@@ -6110,7 +6199,7 @@
       margin-bottom: 5px;
   }
   .sin-gallery.style-b > a{color: #919889;}
-  .sin-gallery.style-b > a i{margin-right: 5px;} 
+  .sin-gallery.style-b > a i{margin-right: 5px;}
   .kids-care-gallery.style-two {
       background-image: none;
       background: #f8f8f8;
@@ -6121,14 +6210,14 @@
   }
   .enroll-area.style-two {
       background-image: url(img/bg/news-letter-bg-4.jpg);
-  
+
   }
-  
+
   /*----------------------------------------*/
-  /*  20.  Home page four 
+  /*  20.  Home page four
   /*----------------------------------------*/
-  
-  
+
+
   .main-menu-area.top-border::before{
       position: absolute;
       content: '';
@@ -6138,12 +6227,12 @@
       top: 0;
       left: 0;
   }
-  
+
   /*----------------------------------------*/
-  /*  21.  Home page five 
+  /*  21.  Home page five
   /*----------------------------------------*/
-  
-  
+
+
   .logo-area-style-two.top-border::before{
       position: absolute;
       content: '';
@@ -6154,11 +6243,11 @@
       left: 0;
   }
   .logo-area-style-two.top-border{position: relative}
-  
+
   /*----------------------------------------*/
-  /*  22.  Admission page  
+  /*  22.  Admission page
   /*----------------------------------------*/
-  
+
   .sin-admision-proc {
       text-align: center;
       padding-bottom: 25px;
@@ -6242,9 +6331,9 @@
       z-index: -1;
   }
   /*----------------------------------------*/
-  /*  23.  Home page six   
+  /*  23.  Home page six
   /*----------------------------------------*/
-  
+
   .top-bar.bg-per .first-span {
       border-right: 2px solid #6e5fb0;
   }
@@ -6261,11 +6350,11 @@
       background-attachment: fixed;
       padding-bottom: 150px;
   }
-  
+
   /*----------------------------------------*/
-  /*  24.  Home page Nine   
+  /*  24.  Home page Nine
   /*----------------------------------------*/
-  
+
    .mainmenu.style-4 > ul > li > img {
       position: absolute;
       width: 19px;
@@ -6276,11 +6365,11 @@
   .mainmenu.style-4 {
       padding-top: 15px;
   }
-  
+
   /*----------------------------------------*/
-  /*  25.  Home page Ten   
+  /*  25.  Home page Ten
   /*----------------------------------------*/
-  
+
   .bg-red  .first-span{
       border-right: 2px solid #fcfcfc;
   }
@@ -6307,13 +6396,13 @@
       background: #fff;
       padding: 100px 0px;
   }
-  
+
   .footer-widget.style-two {
       background-image: url(img/bg/footer-two-bg.png), url(img/bg/footer-top-bg-2.png);
       background-position: top, bottom;
       background-repeat: repeat-x, no-repeat;
   }
-  
+
   .border-top::before {
       position: absolute;
       content: '';
@@ -6324,9 +6413,9 @@
       left: 0;
   }
   /*----------------------------------------*/
-  /*  25.  404 page    
+  /*  25.  404 page
   /*----------------------------------------*/
-  
+
   .four-zero-page {
       text-align: center;
       padding: 100px 0 50px;
@@ -6338,5 +6427,4 @@
       font-size: 28px;
       margin-bottom: 40px;
   }
-  
-  
+
