@@ -18,6 +18,7 @@ class CreateRoomsTable extends Migration
             $table->foreignId('game_id')->constrained('games');
             $table->foreignId('creator_id')->constrained('users');
             $table->string('code');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
