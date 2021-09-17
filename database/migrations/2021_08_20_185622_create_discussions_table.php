@@ -15,7 +15,8 @@ class CreateDiscussionsTable extends Migration
     {
         Schema::create('discussions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('participant_id')->constrained('participants');
+            $table->foreignId('room_id')->constrained('rooms');
+            $table->foreignId('user_id')->constrained('users');
             $table->text('text');
             $table->timestamps();
         });
