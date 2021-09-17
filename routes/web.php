@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\SendMessage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -37,18 +38,21 @@ Route::get('/', function () {
 Route::get('/blank', function () {
     return view('admin.blank');
 })->name('blank');
-Route::get('/logout-get', function () {
-    Auth::logout();
-    return back();
-})->name('logout-get');
+Route::get('/send', function () {
+    event(new SendMessage('Hai'));
+})->name('send');
 
 Auth::routes();
 
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['login'])->group(function () {
     Route::put('/profile/{id}', [App\Http\Controllers\UserController::class, 'updateProfile'])->name('profile.update');
     Route::put('/profile/password/{id}', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('profile.update.password');
     Route::put('/profile/image/{id}', [App\Http\Controllers\UserController::class, 'updateImage'])->name('profile.update.image');
+    Route::resource('/room', App\Http\Controllers\RoomController::class);
+    Route::get('/room/{room}/change-status', [App\Http\Controllers\RoomController::class,'changeStatus'])->name('room.change-status');
+    Route::get('/play/{game}/{code}', [App\Http\Controllers\PageController::class, 'play'])->name('play');
+    Route::get('/join/{code}', [App\Http\Controllers\RoomController::class, 'join'])->name('room.join');
 });
 
 Route::prefix('admin')->middleware('admin')->group(function(){
@@ -59,10 +63,10 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::resource('/game', App\Http\Controllers\GameController::class);
 });
 
-Route::middleware(['visitor'])->group(function () {
+Route::prefix('/')->group(function () {
     Route::get('/simulation', [App\Http\Controllers\PageController::class, 'simulation'])->name('simulation');
     Route::get('/room-play', [App\Http\Controllers\PageController::class, 'roomPlay'])->name('room-play');
-    Route::get('/room', [App\Http\Controllers\PageController::class, 'room'])->name('room');
+    Route::get('/simulation-room', [App\Http\Controllers\PageController::class, 'room'])->name('room');
     Route::get('/index', [App\Http\Controllers\PageController::class, 'index'])->name('index');
     Route::get('/akun', [App\Http\Controllers\PageController::class, 'akun'])->name('akun');
 });

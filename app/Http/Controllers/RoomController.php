@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Participant;
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RoomController extends Controller
 {
@@ -36,7 +38,18 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'game_id' => 'required'
+        ]);
+
+        $code = $this->code(15);
+        Room::create([
+            'game_id' => $request->game_id,
+            'creator_id' => Auth::id(),
+            'code' => $code
+        ]);
+
+        return redirect()->route('join',['code'=>$code]);
     }
 
     /**
@@ -82,5 +95,33 @@ class RoomController extends Controller
     public function destroy(Room $room)
     {
         //
+    }
+
+    public function join($code)
+    {
+        $room = Room::all()->where('code',$code)->first();
+        if ($room==null) {
+            return abort(404);
+        }else{
+            $participant = Participant::all()->where('user_id',Auth::id())->where('room_id',$room->id)->first();
+            if($participant==null){
+                Participant::create([
+                    'user_id' => Auth::id(),
+                    'room_id' => $room->id,
+                    'score' => 0,
+                ]);
+            }
+            return redirect()->route('play',['game'=>$room->game_id,'code'=>$room->code]);
+        }
+    }
+
+    private function code($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 }

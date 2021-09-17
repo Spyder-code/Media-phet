@@ -41,16 +41,16 @@
                         <div class="card">
                             <div class="card-body">
                                 <h1 class="area-heading text-success style-two">Create Room</h1>
-                                <form action="">
+                                <form action="{{ route('room.store') }}" method="post">
                                     @csrf
                                     <label>Simulation</label>
                                     <select name="game_id" class="form-control" id="">
-                                        <option value="">A</option>
-                                        <option value="">B</option>
-                                        <option value="">C</option>
+                                        @foreach ($game as $item)
+                                            <option value="{{ $item->id }}" {{ $item->id==1?'selected':'' }}>{{ $item->name }}</option>
+                                        @endforeach
                                     </select>
                                     <div class="mt-2 float-right">
-                                        <button type="submit" class="btn btn-rounded btn-success">Create</button>
+                                        <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-rounded btn-success">Create</button>
                                     </div>
                                 </form>
                             </div>
@@ -59,15 +59,12 @@
                     <div class="col-12 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h1 class="area-heading text-primary style-two">Create Room</h1>
-                                <form action="">
-                                    @csrf
+                                <h1 class="area-heading text-primary style-two">Join Room</h1>
                                     <label>Room Code</label>
-                                    <input type="text" name="" id="" class="form-control">
+                                    <input type="text" id="code" class="form-control">
                                     <div class="mt-2 float-right">
-                                        <button type="submit" class="btn btn-rounded btn-primary">Join</button>
+                                        <a href="#" id="join" class="btn btn-rounded btn-primary">Join</a>
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -90,48 +87,30 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($myroom as $item)
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>@mdo</td>
+                                                <th scope="row">{{ $loop->iteration }}</th>
+                                                <td>{{ $item->code }}</td>
+                                                <td>{{ $item->participant->count() }}</td>
                                                 <td>
                                                     <div class="alert alert-success">Active</div>
                                                 </td>
-                                                <td>Mark</td>
+                                                <td>{{ date('d F Y', strtotime($item->created_at)) }}</td>
                                                 <td class="d-flex justify-content-center">
-                                                    <form action="">
+                                                    <form action="{{ route('room.destroy',['room'=>$item->id]) }}" method="POST">
                                                         @csrf
-                                                        <button type="submit" class="btn btn-rounded mx-2 btn-danger">Delete</button>
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-rounded mx-2 btn-danger" onclick="return confir('are you sure?')">Delete</button>
                                                     </form>
-                                                    <form action="">
+                                                    <form action="{{ route('room.change-status',['room'=>$item->id]) }}">
                                                         @csrf
                                                         <button type="submit" class="btn btn-rounded mx-2 btn-warning">Disabled</button>
                                                     </form>
-                                                    <a class="btn btn-rounded mx-2 btn-primary" href="">Detail</a>
+                                                    <a class="btn btn-rounded mx-2 btn-primary" href="{{ route('play',['game'=>$item->game_id,'code'=>$item->code]) }}">Detail</a>
                                                     <button type="button" class="btn btn-rounded mx-2 btn-secondary">Copy link</button>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>@fat</td>
-                                                <td>
-                                                    <div class="alert alert-secondary">Inactive</div>
-                                                </td>
-                                                <td>Jacob</td>
-                                                <td class="d-flex justify-content-center">
-                                                    <form action="">
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-rounded mx-2 btn-danger">Delete</button>
-                                                    </form>
-                                                    <form action="">
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-rounded mx-2 btn-success">Actived</button>
-                                                    </form>
-                                                    <a class="btn btn-rounded mx-2 btn-primary" href="">Detail</a>
-                                                    <button type="button" class="btn btn-rounded mx-2 btn-secondary">Copy link</button>
-                                                </td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -144,4 +123,18 @@
     </div>
     <!--Our class area end-->
 
+@endsection
+
+@section('script')
+    <script>
+        $(function(){
+            $('#join').click(function (e) {
+                var val = $('#code').val();
+                var url = {!! json_encode(url('join/')) !!};
+                if(confirm('are you sure?')){
+                    window.location = url +'/'+ val;
+                }
+            });
+        })
+    </script>
 @endsection

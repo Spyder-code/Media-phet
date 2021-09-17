@@ -22,6 +22,11 @@ class Room extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class,'creator_id');
+    }
+
+    public function participant()
+    {
+        return $this->hasMany(Participant::class,'room_id');
     }
 }
