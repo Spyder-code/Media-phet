@@ -38,6 +38,9 @@ Route::get('/', function () {
 Route::get('/blank', function () {
     return view('admin.blank');
 })->name('blank');
+Route::get('/error', function () {
+    return view('errors.404');
+});
 // Route::get('/send', function () {
 //     event(new SendMessage('Hai'));
 // })->name('send');
