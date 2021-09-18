@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SendMessage;
+use App\Models\Discussion;
 use App\Models\Participant;
 use App\Models\Room;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,7 +52,7 @@ class RoomController extends Controller
             'code' => $code
         ]);
 
-        return redirect()->route('join',['code'=>$code]);
+        return redirect()->route('room.join',['code'=>$code]);
     }
 
     /**
@@ -113,6 +116,27 @@ class RoomController extends Controller
             }
             return redirect()->route('play',['game'=>$room->game_id,'code'=>$room->code]);
         }
+    }
+
+    public function send(Request $request)
+    {
+        $data = Discussion::create([
+            'room_id' => $request->room_id,
+            'user_id' => $request->user_id,
+            'text' => $request->text,
+        ]);
+
+        $user = User::find($request->user_id);
+        if ($request->user_id==Auth::id()) {
+            $data = '<p class="userText my-2"><span><sup class="mr-3"><small>'.$user->username.'</small></sup>'.$request->text.'</span></p>';
+            $data1 = '<p class="botText my-2"><span> '.$request->text.'<sup class="ml-3"><small>'.$user->username.'</small></sup></span></p>';
+        } else {
+            $data = '<p class="botText my-2"><span> '.$request->text.'<sup class="ml-3"><small>'.$user->username.'</small></sup></span></p>';
+            $data1 = '<p class="userText my-2"><span><sup class="mr-3"><small>'.$user->username.'</small></sup>'.$request->text.'</span></p>';
+        }
+        broadcast(new SendMessage($data1))->toOthers();
+        // event(new SendMessage($data1));
+        return response($data);
     }
 
     private function code($length = 10) {

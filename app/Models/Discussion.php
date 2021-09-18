@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Discussion extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'room_id',
+        'user_id',
+        'text',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

@@ -38,9 +38,9 @@ Route::get('/', function () {
 Route::get('/blank', function () {
     return view('admin.blank');
 })->name('blank');
-Route::get('/send', function () {
-    event(new SendMessage('Hai'));
-})->name('send');
+// Route::get('/send', function () {
+//     event(new SendMessage('Hai'));
+// })->name('send');
 
 Auth::routes();
 
@@ -53,6 +53,7 @@ Route::middleware(['login'])->group(function () {
     Route::get('/room/{room}/change-status', [App\Http\Controllers\RoomController::class,'changeStatus'])->name('room.change-status');
     Route::get('/play/{game}/{code}', [App\Http\Controllers\PageController::class, 'play'])->name('play');
     Route::get('/join/{code}', [App\Http\Controllers\RoomController::class, 'join'])->name('room.join');
+    Route::post('send/message', [App\Http\Controllers\RoomController::class, 'send'])->name('send');
 });
 
 Route::prefix('admin')->middleware('admin')->group(function(){

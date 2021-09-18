@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Discussion;
 use App\Models\Game;
 use App\Models\Participant;
 use App\Models\Room;
@@ -41,6 +42,7 @@ class PageController extends Controller
     {
         $room = Room::all()->where('code',$code)->where('game_id',$game->id)->first();
         $participant = Participant::all()->where('room_id',$room->id);
-        return view('media-phet.room_play', compact('room','participant','game'));
+        $discussion = Discussion::all()->where('room_id',$room->id);
+        return view('media-phet.room_play', compact('room','participant','game','discussion'));
     }
 }

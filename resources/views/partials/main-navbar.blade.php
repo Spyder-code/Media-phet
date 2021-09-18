@@ -185,7 +185,7 @@
                             </div>
                         </li> --}}
                        <li class="fc-per"><img src="img/icon/menu-icon5.png" alt=""><a href="{{ route('room') }}">Room</a></li>
-                       <li class="fc-green hav-sub nv-disabled" style="{{ Auth::check()?'':'opacity: 50%' }}"><img src="img/icon/menu-icon4.png" alt=""><a class="disabled nv-disabled" href="{{ Auth::check()?route('admin.room'):'#' }}">My profile <i class="{{ Auth::check()?'':'fa fa-lock' }}"></i></a></li>
+                       <li class="fc-green hav-sub nv-disabled" style="{{ Auth::check()?'':'opacity: 50%' }}"><img src="img/icon/menu-icon4.png" alt=""><a class="disabled nv-disabled" href="{{ Auth::check()?route('akun'):'#' }}">My profile <i class="{{ Auth::check()?'':'fa fa-lock' }}"></i></a></li>
                        <li class="fc-sky hav-sub"><img src="img/icon/menu-icon7.png" alt=""><a href="contact.html">Contact us</a></li>
                     </ul>
                </div>

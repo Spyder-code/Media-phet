@@ -1,6 +1,7 @@
 @extends('layouts.user')
 @section('style')
     <link rel="stylesheet" href="{{ asset('/') }}static/css/chat.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
 @section('isi')
@@ -96,12 +97,18 @@
                         <!-- Messages -->
                         <div id="chatbox">
                             <h5 id="chat-timestamp">07:20</h5>
-                            <p class="botText my-2">
-                                <span>How's it going? <sup class="ml-3"><small>Almi</small></sup></span>
-                            </p>
-                            <p class="userText my-2">
-                                <span><sup class="mr-3"><small>Almi</small></sup> Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore eius deserunt quibusdam magnam et numquam, amet facere ipsa dolor recusandae quisquam quidem ad non? Ipsam perspiciatis optio natus nobis id?</span>
-                            </p>
+                            @foreach ($discussion as $item)
+                                @if (Auth::id()!=$item->user_id)
+                                    <p class="botText my-2">
+                                        <span>{{ $item->text }} <sup class="ml-3 {{ $item->user_id==$room->creator_id?'bg-success y-1':'' }}"><small>{{ $item->user_id==$room->creator_id?'Teacher':$item->user->username }}</small></sup></span>
+                                    </p>
+                                @else
+                                    <p class="userText my-2">
+                                        <span><sup class="mr-3 {{ $item->user_id==$room->creator_id?'bg-success p-1 rounded':'' }}" ><small>{{ $item->user_id==$room->creator_id?'Teacher':$item->user->username }}</small></sup> {{ $item->text }}</span>
+                                    </p>
+                                @endif
+                            @endforeach
+                            <div id="response"></div>
                         </div>
                         <!-- User input box -->
                         <div class="chat-bar-input-block">
@@ -132,9 +139,34 @@
     @if (Auth::check())
         <script src="{{ asset('js/app.js') }}"></script>
         <script>
+            $('#textInput').keypress(function (e) {
+                if(e.keyCode==13){
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    var url = {!! json_encode(route('send')) !!}
+                    var text = $(this).val();
+                    var user_id = {!! json_encode(Auth::id()) !!};
+                    var room_id = {!! json_encode($room->id) !!};
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: {text:text,user_id:user_id,room_id:room_id},
+                        success: function (data) {
+                            $('#textInput').val('');
+                            $('#response').append(data);
+                        },
+                        error: function (data) {
+                            console.log(data);
+                        }
+                    });
+                }
+            });
             Echo.private(`room`)
             .listen('SendMessage', (e) => {
-                console.log(e);
+                $('#response').append(e.message);
             });
         </script>
     @endif
