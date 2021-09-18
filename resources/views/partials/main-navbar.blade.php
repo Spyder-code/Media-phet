@@ -95,7 +95,7 @@
                         <img src="img/logo.png" alt="">
                     </a></li>
                    <li ><a class="closeme" href="#"><i class="fa fa-times" ></i></a></li>
-                   <li class="fc-red out-link"><a class="" href={{ route('index') }}>Home</a></li>
+                   <li class="fc-red out-link"><a class="" href={{ url('/') }}>Home</a></li>
                    <li>
                         <div class="link font-per"><a href="{{ route('simulation') }}">Simulation</a></div>
                     </li>
@@ -103,14 +103,21 @@
                         <div class="link font-per"><a href="{{ route('room') }}">Room</a></div>
                     </li>
                    <li>
-                        <div class="link font-per"><a href="{{ route('simulation') }}">Research</a></div>
+                        <div class="link font-per"><a href="{{ Auth::check()?route('akun'):route('login') }}">My profile</a></div>
                     </li>
                     <li>
                         <div class="link font-red"><a href="">Contact</a></div>
                     </li>
                     <li>
                         <div class="top-contact-btn">
-                            <a href="{{ Auth::check()?route('akun'):route('login') }}" class="kids-care-btn bg-sky">{{ Auth::check()?'My profile':'Login' }}</a>
+                                @if (Auth::check())
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button class="kids-care-btn bg-sky" onclick="return confirm('are you sure?')" type="submit">Logout</button>
+                            </form>
+                            @else
+                                <a href="{{ route('login') }}" class="kids-care-btn bg-sky">Login</a>
+                            @endif
                         </div>
                     </li>
 

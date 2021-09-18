@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Participant;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -10,20 +11,21 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class SendMessage implements ShouldBroadcast
+class JoinRoom implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $message, $room;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($message, $room)
+
+    public $room,$data;
+    public function __construct($room,$data)
     {
-        $this->message = $message;
         $this->room = $room;
+        $this->data = $data;
     }
 
     /**
@@ -33,6 +35,6 @@ class SendMessage implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('room.'.$this->room);
+        return new PrivateChannel('join.'.$this->room);
     }
 }

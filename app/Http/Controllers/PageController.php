@@ -17,6 +17,12 @@ class PageController extends Controller
         return view('media-phet.simulation', compact('game'));
     }
 
+    public function simulationGame(Game $game)
+    {
+        $room = null;
+        return view('media-phet.room_play', compact('game','room'));
+    }
+
     public function index()
     {
         return view('media-phet.index');
@@ -44,7 +50,12 @@ class PageController extends Controller
     {
         $room = Room::all()->where('code',$code)->where('game_id',$game->id)->first();
         $participant = Participant::all()->where('room_id',$room->id);
+        $join = Participant::all()->where('room_id',$room->id)->where('user_id',Auth::id())->first();
         $discussion = Discussion::all()->where('room_id',$room->id);
-        return view('media-phet.room_play', compact('room','participant','game','discussion'));
+        if($join==null){
+            return redirect()->route('room.join',['code'=>$code]);
+        }else{
+            return view('media-phet.room_play', compact('room','participant','game','discussion'));
+        }
     }
 }

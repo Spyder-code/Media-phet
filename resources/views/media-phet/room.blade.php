@@ -93,19 +93,22 @@
                                                 <td>{{ $item->code }}</td>
                                                 <td>{{ $item->participant->count() }}</td>
                                                 <td>
-                                                    <div class="alert alert-success">Active</div>
+                                                    <div class="alert {{ $item->status==0?'alert-secondary':'alert-success' }}">{{ $item->status==0?'End':'Active' }}</div>
                                                 </td>
                                                 <td>{{ date('d F Y', strtotime($item->created_at)) }}</td>
                                                 <td class="d-flex justify-content-center">
-                                                    <form action="{{ route('room.destroy',['room'=>$item->id]) }}" method="POST">
+                                                    {{-- <form action="{{ route('room.destroy',['room'=>$item->id]) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-rounded mx-2 btn-danger" onclick="return confir('are you sure?')">Delete</button>
-                                                    </form>
-                                                    <form action="{{ route('room.change-status',['room'=>$item->id]) }}">
+                                                        <button type="submit" class="btn btn-rounded mx-2 btn-danger" onclick="return confirm('are you sure?')">Delete</button>
+                                                    </form> --}}
+                                                    @if ($item->status==1)
+                                                    <form action="{{ route('room.change-status',['room'=>$item->id]) }}" method="POST">
                                                         @csrf
-                                                        <button type="submit" class="btn btn-rounded mx-2 btn-warning">Disabled</button>
+                                                        @method('PUT')
+                                                        <button type="submit" class="btn btn-rounded mx-2 btn-warning" onclick="return confirm('are you sure?')">Disabled</button>
                                                     </form>
+                                                    @endif
                                                     <a class="btn btn-rounded mx-2 btn-primary" href="{{ route('play',['game'=>$item->game_id,'code'=>$item->code]) }}">Detail</a>
                                                     <button type="button" class="btn btn-rounded mx-2 btn-secondary">Copy link</button>
                                                 </td>

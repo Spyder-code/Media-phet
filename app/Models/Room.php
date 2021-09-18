@@ -13,6 +13,7 @@ class Room extends Model
         'code',
         'game_id',
         'creator_id',
+        'status'
     ];
 
     public function game()

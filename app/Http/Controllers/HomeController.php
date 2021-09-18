@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $role = Auth::user()->role;
+        $role = Auth::user()->role_id;
         if ($role==1) {
             $visitor = Visitor::all();
             $user = User::all();

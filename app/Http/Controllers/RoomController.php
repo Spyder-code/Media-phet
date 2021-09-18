@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\JoinRoom;
 use App\Events\SendMessage;
 use App\Models\Discussion;
 use App\Models\Participant;
@@ -97,7 +98,8 @@ class RoomController extends Controller
      */
     public function destroy(Room $room)
     {
-        //
+        Room::destroy($room->id);
+        return back();
     }
 
     public function join($code)
@@ -108,11 +110,18 @@ class RoomController extends Controller
         }else{
             $participant = Participant::all()->where('user_id',Auth::id())->where('room_id',$room->id)->first();
             if($participant==null){
-                Participant::create([
+                $par = Participant::create([
                     'user_id' => Auth::id(),
                     'room_id' => $room->id,
                     'score' => 0,
                 ]);
+                $a =  $participant = Participant::all()->where('room_id',$room->id)->count();
+                $data = '<tr>
+                <th scope="row">'.$a.'</th>
+                <td>'.$par->user->name.'</td>
+                <td>'.$par->score.'</td>
+                </tr>';
+                event(new JoinRoom($room->id, $data));
             }
             return redirect()->route('play',['game'=>$room->game_id,'code'=>$room->code]);
         }
@@ -126,17 +135,39 @@ class RoomController extends Controller
             'text' => $request->text,
         ]);
 
+        $room = Room::find($request->room_id);
         $user = User::find($request->user_id);
         if ($request->user_id==Auth::id()) {
-            $data = '<p class="userText my-2"><span><sup class="mr-3"><small>'.$user->username.'</small></sup>'.$request->text.'</span></p>';
-            $data1 = '<p class="botText my-2"><span> '.$request->text.'<sup class="ml-3"><small>'.$user->username.'</small></sup></span></p>';
+            if(Auth::id()==$room->creator_id){
+                $data = '<p class="userText my-2"><span><sup class="mr-3 bg-success p-1 rounded"><small> Teacher</small></sup>'.$request->text.'</span></p>';
+                $data1 = '<p class="botText my-2"><span> '.$request->text.'<sup class="ml-3 bg-success p-1 rounded"><small> Teacher</small></sup></span></p>';
+            }else{
+                $data = '<p class="userText my-2"><span><sup class="mr-3"><small>'.$user->username.'</small></sup>'.$request->text.'</span></p>';
+                $data1 = '<p class="botText my-2"><span> '.$request->text.'<sup class="ml-3"><small>'.$user->username.'</small></sup></span></p>';
+            }
         } else {
-            $data = '<p class="botText my-2"><span> '.$request->text.'<sup class="ml-3"><small>'.$user->username.'</small></sup></span></p>';
-            $data1 = '<p class="userText my-2"><span><sup class="mr-3"><small>'.$user->username.'</small></sup>'.$request->text.'</span></p>';
+            if(Auth::id()==$room->creator_id){
+                $data1 = '<p class="userText my-2"><span><sup class="mr-3 bg-success p-1 rounded"><small> Teacher</small></sup>'.$request->text.'</span></p>';
+                $data = '<p class="botText my-2"><span> '.$request->text.'<sup class="ml-3 bg-success p-1 rounded"><small> Teacher</small></sup></span></p>';
+            }else{
+                $data1 = '<p class="userText my-2"><span><sup class="mr-3"><small>'.$user->username.'</small></sup>'.$request->text.'</span></p>';
+                $data = '<p class="botText my-2"><span> '.$request->text.'<sup class="ml-3"><small>'.$user->username.'</small></sup></span></p>';
+            }
         }
-        broadcast(new SendMessage($data1))->toOthers();
+        broadcast(new SendMessage($data1,$request->room_id))->toOthers();
         // event(new SendMessage($data1));
         return response($data);
+    }
+
+    public function changeStatus(Room $room)
+    {
+        $status = $room->status;
+        if($status==0){
+            Room::find($room->id)->update(['status'=>1]);
+        }else{
+            Room::find($room->id)->update(['status'=>0]);
+        }
+        return back();
     }
 
     private function code($length = 10) {

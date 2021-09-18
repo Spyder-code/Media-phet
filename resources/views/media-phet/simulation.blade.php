@@ -34,14 +34,14 @@
                         <div class="sin-class wow fadeInUp" data-wow-delay=".5s">
                            <div class="row no-gutters">
                                <div class="left-c">
-                                    <div class="class-con-top bgc-orange">
-                                        <h5>{{ $g->name }}</h5>
-                                        <h6>{{ $g->class }}</h6>
-                                        <p>January 9, 2018</p>
+                                    <div class="class-con-top {{ $g->id==1?'bgc-orange':($g->id==2?'bg-blue':'bg-green') }}">
+                                        <h2>{{ $g->name }}</h2>
+                                        <h5>{{ $g->class }}</h5>
+                                        {{-- <p>January 9, 2018</p> --}}
                                     </div>
                                     <div class="class-con-bot">
-                                      <span>AGE GROUP<br> 2 - 5</span>
-                                       <span>$120 <br>Monthly</span>
+                                        <span></span>
+                                        <span><a href="{{ route('simulation.game',['game'=>$g->id]) }}"><h2>Play</h2></a></span>
                                     </div>
                                 </div>
                                 <div class="r-class">
