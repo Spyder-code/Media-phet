@@ -28,13 +28,15 @@
             </div>
             <div class="class-are-inner-width">
                 <div class="row">
+                    @foreach ($game as $g)
+                    @if($g->id!=0)
                     <div class="col-12 col-md-6">
                         <div class="sin-class wow fadeInUp" data-wow-delay=".5s">
                            <div class="row no-gutters">
                                <div class="left-c">
                                     <div class="class-con-top bgc-orange">
-                                        <h5>MATCH CLASS</h5>
-                                        <h6>Primary</h6>
+                                        <h5>{{ $g->name }}</h5>
+                                        <h6>{{ $g->class }}</h6>
                                         <p>January 9, 2018</p>
                                     </div>
                                     <div class="class-con-bot">
@@ -43,12 +45,14 @@
                                     </div>
                                 </div>
                                 <div class="r-class">
-                                    <img src="img/wellcome/wellcome-3-1.png" alt="">
+                                    <img src="{{ $g->image }}" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
+                    @endif
+                    @endforeach
+                    {{-- <div class="col-12 col-md-6">
                         <div class="sin-class wow fadeInUp" data-wow-delay=".5s">
                            <div class="row no-gutters">
                                 <div class="left-c">
@@ -107,7 +111,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

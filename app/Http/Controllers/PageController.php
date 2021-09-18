@@ -13,7 +13,8 @@ class PageController extends Controller
 {
     public function simulation()
     {
-        return view('media-phet.simulation');
+        $game = Game::all();
+        return view('media-phet.simulation', compact('game'));
     }
 
     public function index()
@@ -28,7 +29,8 @@ class PageController extends Controller
 
     public function akun()
     {
-        return view('media-phet.akun');
+        $histori = Participant::all()->where('user_id',Auth::id());
+        return view('media-phet.akun', compact('histori'));
     }
 
     public function room()
