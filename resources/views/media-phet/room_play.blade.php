@@ -27,33 +27,38 @@
                 <div class="row">
                     <div class="col-12">
                         @if ($room!=null)
-                        <table class="text-dark mb-5" style="border: none;">
-                            <thead>
-                                <tr>
-                                    <td width="300px">Room created with</td>
-                                    <td width="20px">:</td>
-                                    <td colspan="2" width="max-content"><b>{{ $room->user->name }}</b></td>
-                                </tr>
-                                <tr>
-                                    <td width="300px">Created on</td>
-                                    <td width="20px">:</td>
-                                    <td colspan="2" width="max-content"><b>{{ date('d F Y', strtotime($room->created_at)) }}</b></td>
-                                </tr>
-                                <tr>
-                                    <td width="300px">Code</td>
-                                    <td width="20px">:</td>
-                                    <td colspan="2" width="max-content"><b>{{ $room->code }}</b><button class="ml-2 btn btn-sm btn-rounded btn-secondary"><small>Copy</small></button></td>
-                                </tr>
-                                <tr>
-                                    <td width="300px">Link</td>
-                                    <td width="20px">:</td>
-                                    <td colspan="2" width="max-content"><b>{{ route('room.join',['code'=>$room->code]) }}</b><button class="ml-2 btn btn-sm btn-rounded btn-secondary"><small>Copy</small></button></td>
-                                </tr>
-                            </thead>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="text-dark mb-5" style="border: none;">
+                                <thead>
+                                    <tr>
+                                        <td width="300px">Room created with</td>
+                                        <td width="20px">:</td>
+                                        <td colspan="2" width="max-content"><b>{{ $room->user->name }}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="300px">Created on</td>
+                                        <td width="20px">:</td>
+                                        <td colspan="2" width="max-content"><b>{{ date('d F Y', strtotime($room->created_at)) }}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="300px">Code</td>
+                                        <td width="20px">:</td>
+                                        <td colspan="2" width="max-content"><b>{{ $room->code }}</b><button class="ml-2 btn btn-sm btn-rounded btn-secondary"><small>Copy</small></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="300px">Link</td>
+                                        <td width="20px">:</td>
+                                        <td colspan="2" width="max-content"><b>{{ route('room.join',['code'=>$room->code]) }}</b><button class="ml-2 btn btn-sm btn-rounded btn-secondary"><small>Copy</small></button></td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
                         @endif
-                        <div class="card bg-primary" style="width:100%; height:550px">
-
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <a href="{{ route('play.game',['game'=>$game->id]) }}" target="d_blank" class="btn btn-primary">Play Game</a>
+                            </div>
+                            {{-- @include('game.1') --}}
                         </div>
                         @if ($room!=null)
                             @if ($room->creator_id==Auth::id())
@@ -68,13 +73,11 @@
                                     </thead>
                                     <tbody id="tbody">
                                         @foreach ($participant as $item)
-                                            @if($item->user_id!=$room->creator_id)
-                                            <tr>
-                                                <th scope="row">{{ $loop->iteration }}</th>
-                                                <td>{{ $item->user->name }}</td>
-                                                <td>{{ $item->score }}</td>
-                                            </tr>
-                                            @endif
+                                        <tr>
+                                            <th scope="row">{{ $loop->iteration }}</th>
+                                            <td>{{ $item->user->name }}</td>
+                                            <td>{{ $item->score }}</td>
+                                        </tr>
                                         @endforeach
                                     </tbody>
                                 </table>

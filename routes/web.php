@@ -1,9 +1,10 @@
 <?php
 
 use App\Events\SendMessage;
+use App\Models\Participant;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,9 +39,7 @@ Route::get('/', function () {
 Route::get('/blank', function () {
     return view('admin.blank');
 })->name('blank');
-// Route::get('/send', function () {
-//     event(new SendMessage('Hai'));
-// })->name('send');
+
 
 Auth::routes();
 
@@ -71,4 +70,5 @@ Route::prefix('/')->group(function () {
     Route::get('/simulation-room', [App\Http\Controllers\PageController::class, 'room'])->name('room');
     Route::get('/index', [App\Http\Controllers\PageController::class, 'index'])->name('index');
     Route::get('/akun', [App\Http\Controllers\PageController::class, 'akun'])->name('akun');
+    Route::get('/play/{game}', [App\Http\Controllers\PageController::class, 'playGame'])->name('play.game');
 });

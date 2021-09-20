@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Phet - UINSA</title>
     <!-- === webfont=== -->
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     <!--Font awesome css-->
@@ -91,7 +91,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
-                    <p>&copy; 2018 ThemeIm. All rights reserved. Design by ThemeIm</p>
+                    <p>&copy; 2021 Phet - UINSA</p>
                 </div>
             </div>
         </div>
