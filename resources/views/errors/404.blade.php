@@ -119,7 +119,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
-                    <p>&copy; 2018 ThemeIm. All rights reserved. Design by ThemeIm</p>
+                    <p>&copy; 2021 Phet - UINSA</p>
                 </div>
             </div>
         </div>
