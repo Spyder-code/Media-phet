@@ -2,6 +2,7 @@
 @section('isi')
 <div class="text-bread-crumb d-flex align-items-center style-seven">
     <div class="container-fluid">
+
         <div class="row">
             <div class="col-md-12">
                 <h2>My Profile</h2>
@@ -12,6 +13,28 @@
     <!--Our class area start-->
     <div class="our-class-area">
         <div class="container-fluid">
+            
+            @if ($message = Session::get('success'))
+            <div class="row">
+                <div class="col mt-3">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{ $message }}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            @endif
+            @if ($message = Session::get('danger'))
+            <div class="row">
+                <div class="col mt-3">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>{{ $message }}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            @endif
+
             <div class="row">
                 <div class="col-12 col-md-4">
                     <div class="">
@@ -20,14 +43,15 @@
                             @method('PUT')
                             <input type="file" id="avatar" name="avatar" onchange="submit()" hidden>
                             <div class="user-content">
-                                <label for="avatar" style="cursor: pointer"><img src="{{ Auth::user()->avatar }}" class="img-fluid rounded"></label>
+                                <label for="avatar" style="cursor: pointer"><img src="{{ Auth::user()->avatar }}" class="img-fluid rounded" style="margin-block: 0"></label>
                             </div>
+                        </form>    
                     </div>
                     <h1 class="area-heading font-per style-two">{{ Auth::user()->name }}</h1>
                     <p class="heading-para">{{ Auth::user()->email }}</p>
                 </div>
                 <div class="col-12 col-md-4">
-                    <form class="login100-form validate-form" method="POST" action="{{ route('profile.update',['id' => Auth::id()]) }}">
+                    <form class="login100-form validate-form" method="POST" action="{{ route('profile.update',['id'=>Auth::id()]) }}">
                         @csrf
                         @method('PUT')
                         <div class="wrap-input100 validate-input mb-3">
