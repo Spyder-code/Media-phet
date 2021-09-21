@@ -8,6 +8,15 @@
                 <form class="login100-form validate-form"  method="POST" action="{{ route('register') }}">
                     @csrf
 
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <!-- <span class="login100-form-title p-t-20 p-4">
                         Login
                     </span> -->

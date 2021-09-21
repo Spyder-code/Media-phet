@@ -19,7 +19,7 @@
                 <div class="col mt-3">
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>{{ $message }}</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
                     </div>
                 </div>
             </div>
@@ -29,10 +29,20 @@
                 <div class="col mt-3">
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>{{ $message }}</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
                     </div>
                 </div>
             </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             @endif
 
             <div class="row">
@@ -71,17 +81,17 @@
                     </form>
                 </div>
                 <div class="col-12 col-md-4">
-                    <form class="login100-form validate-form" method="POST" action="{{ route('profile.update.password',['id' => Auth::id()]) }}">
+                    <form class="login100-form validate-form" method="POST" action="{{ route('profile.update.password',['id'=>Auth::id()]) }}">
                         @csrf
                         @method('PUT')
                         <div class="wrap-input100 validate-input mb-3" data-validate="Password is required">
-                            <input class="input100" type="password" id="password" name="password" placeholder="Old Password">
+                            <input class="input100" type="password" id="current_password" name="current_password" placeholder="Old Password">
                         </div>
                         <div class="wrap-input100 validate-input mb-3" data-validate="Password is required">
                             <input class="input100" type="password" id="password" name="password" placeholder="New Password">
                         </div>
                         <div class="wrap-input100 validate-input mb-3" data-validate="Password is required">
-                            <input class="input100" type="password" id="password" name="password" placeholder="Confirm Password">
+                            <input class="input100" type="password" id="password" name="passwordc" placeholder="Confirm Password">
                         </div>
                         <div class="container-login100-form-btn pt-3">
                             <button class="login100-form-btn">

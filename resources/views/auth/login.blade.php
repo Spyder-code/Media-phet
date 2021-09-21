@@ -5,8 +5,21 @@
     <div class="limiter">
         <div class="container-login100 gradlog" style="background-image: url('img/bg/wellcome-bg.jpg');">
             <div class="wrap-login100 p-t-190 p-b-30">
+                
                 <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                     @csrf
+                                
+            @if ($message = Session::get('error'))
+            <div class="row">
+                <div class="col mt-3">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>{{ $message }}</strong>
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    </div>
+                </div>
+            </div>
+            @endif
+
 
                     <!-- <span class="login100-form-title p-t-20 p-4">
                         Login

@@ -38,7 +38,7 @@ class UserController extends Controller
             User::find($id)->update(['password'=>Hash::make($request->password)]);
             return back()->with('success','Password berhasil diubah');
         }else{
-            return back()->with('danger','Password lama salah');;
+            return back()->with('danger','Password lama salah');
         }
     }
 

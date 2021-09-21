@@ -75,15 +75,11 @@
                     <div class="single-widget">
                     <h3 class="font-red">Useful Links</h3>
                     <ul class="footer-tab">
-                        <li><a href="#">Classes</a></li>
-                        <li><a href="#">Teachers</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Children`S Safety</a></li>
-                        <li><a href="#">Testimonials</a></li>
-                        <li><a href="#">Our Mission</a></li>
-                        <li><a href="#">Learning & Fun</a></li>
-                        <li><a href="#">Healthy Meals</a></li>
-                        <li><a href="#">blog</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ route('simulation') }}">Simulation</a></li>
+                        <li><a href="{{ route('room') }}">Room</a></li>
+                        <li><a href="{{ Auth::check()?route('akun'):route('login') }}">My profile</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                     </div>
                 </div>

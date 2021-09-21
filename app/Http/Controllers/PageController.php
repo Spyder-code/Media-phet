@@ -49,12 +49,13 @@ class PageController extends Controller
     public function play(Game $game, $code)
     {
         $room = Room::all()->where('code',$code)->where('game_id',$game->id)->where('status',1)->first();
-        $participant = Participant::all()->where('room_id',$room->id);
-        $join = Participant::all()->where('room_id',$room->id)->where('user_id',Auth::id())->first();
-        $discussion = Discussion::all()->where('room_id',$room->id);
-        session()->put('participant_id', $join->id);
         if($room==null){
             return abort(404);
+        } else {
+            $participant = Participant::all()->where('room_id',$room->id);
+            $join = Participant::all()->where('room_id',$room->id)->where('user_id',Auth::id())->first();
+            $discussion = Discussion::all()->where('room_id',$room->id);
+            session()->put('participant_id', $join->id);
         }
         if($join==null){
             return redirect()->route('room.join',['code'=>$code]);
