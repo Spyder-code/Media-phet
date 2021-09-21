@@ -43,12 +43,12 @@
                                     <tr>
                                         <td width="300px">Code</td>
                                         <td width="20px">:</td>
-                                        <td colspan="2" width="max-content"><b>{{ $room->code }}</b><button class="ml-2 btn btn-sm btn-rounded btn-secondary"><small>Copy</small></button></td>
+                                        <td colspan="2" width="max-content"><b id="code-room">{{ $room->code }}</b><button data-clipboard-target="#code-room" class="ml-2 btn btn-sm btn-rounded btn-secondary copy"><i class="fa fa-clipboard"></i></button></td>
                                     </tr>
                                     <tr>
                                         <td width="300px">Link</td>
                                         <td width="20px">:</td>
-                                        <td colspan="2" width="max-content"><b>{{ route('room.join',['code'=>$room->code]) }}</b><button class="ml-2 btn btn-sm btn-rounded btn-secondary"><small>Copy</small></button></td>
+                                        <td colspan="2" width="max-content"><b id="link-room">{{ route('room.join',['code'=>$room->code]) }}</b><button data-clipboard-target="#link-room" class="ml-2 btn btn-sm btn-rounded btn-secondary copy"><i class="fa fa-clipboard"></i></button></td>
                                     </tr>
                                 </thead>
                             </table>
@@ -125,8 +125,8 @@
                                     <p></p>
                                 </div>
                                 <div class="chat-bar-icons">
-                                    <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart" onclick="heartButton()"></i>
-                                    <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButton()"></i>
+                                    {{-- <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart" onclick="heartButton()"></i> --}}
+                                    <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendMessage()"></i>
                                 </div>
                             </div>
                             <div id="chat-bar-bottom">
@@ -142,7 +142,10 @@
 @endsection
 
 @section('script')
-
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+<script>
+    new ClipboardJS('.copy');
+</script>
 @if ($room!=null)
         <script src="{{ asset('/') }}static/scripts/responses.js"></script>
         <script src="{{ asset('/') }}static/scripts/chat.js"></script>
@@ -151,27 +154,7 @@
         <script>
             $('#textInput').keypress(function (e) {
                 if(e.keyCode==13){
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-                    var url = {!! json_encode(route('send')) !!}
-                    var text = $(this).val();
-                    var user_id = {!! json_encode(Auth::id()) !!};
-                    var room_id = {!! json_encode($room->id) !!};
-                    $.ajax({
-                        type: 'POST',
-                        url: url,
-                        data: {text:text,user_id:user_id,room_id:room_id},
-                        success: function (data) {
-                            $('#textInput').val('');
-                            $('#response').append(data);
-                        },
-                        error: function (data) {
-                            console.log(data);
-                        }
-                    });
+                    sendMessage();
                 }
             });
             var room = {!! json_encode($room->id) !!};
@@ -184,6 +167,30 @@
             .listen('JoinRoom', (e) => {
                 $('#tbody').append(e.data);
             });
+
+            function sendMessage(){
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                var url = {!! json_encode(route('send')) !!}
+                var text = $('#textInput').val();
+                var user_id = {!! json_encode(Auth::id()) !!};
+                var room_id = {!! json_encode($room->id) !!};
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: {text:text,user_id:user_id,room_id:room_id},
+                    success: function (data) {
+                        $('#textInput').val('');
+                        $('#response').append(data);
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
         </script>
         @endif
     @endif

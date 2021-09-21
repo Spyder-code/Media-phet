@@ -75,47 +75,49 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h1 class="area-heading text-primary style-two">My Room</h1>
-                                    <table class="table table-bordered text-dark">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Room Code</th>
-                                                <th scope="col">Participant Count</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Created on</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($myroom as $item)
-                                            <tr>
-                                                <th scope="row">{{ $loop->iteration }}</th>
-                                                <td>{{ $item->code }}</td>
-                                                <td>{{ $item->participant->count() }}</td>
-                                                <td>
-                                                    <div class="alert {{ $item->status==0?'alert-secondary':'alert-success' }}">{{ $item->status==0?'End':'Active' }}</div>
-                                                </td>
-                                                <td>{{ date('d F Y', strtotime($item->created_at)) }}</td>
-                                                <td class="d-flex justify-content-center">
-                                                    {{-- <form action="{{ route('room.destroy',['room'=>$item->id]) }}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-rounded mx-2 btn-danger" onclick="return confirm('are you sure?')">Delete</button>
-                                                    </form> --}}
-                                                    @if ($item->status==1)
-                                                    <form action="{{ route('room.change-status',['room'=>$item->id]) }}" method="POST">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <button type="submit" class="btn btn-rounded mx-2 btn-warning" onclick="return confirm('are you sure?')">Disabled</button>
-                                                    </form>
-                                                    @endif
-                                                    <a class="btn btn-rounded mx-2 btn-primary" href="{{ route('play',['game'=>$item->game_id,'code'=>$item->code]) }}">Detail</a>
-                                                    <button type="button" class="btn btn-rounded mx-2 btn-secondary">Copy link</button>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered text-dark table-wrapper">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Room Link</th>
+                                                    <th scope="col">Participant Count</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Created on</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($myroom as $item)
+                                                <tr>
+                                                    <th scope="row">{{ $loop->iteration }}</th>
+                                                    <td id="link-room">{{ route('room.join',['code'=>$item->code]) }}</td>
+                                                    <td>{{ $item->participant->count() }}</td>
+                                                    <td>
+                                                        <div class="alert {{ $item->status==0?'alert-secondary':'alert-success' }}">{{ $item->status==0?'End':'Active' }}</div>
+                                                    </td>
+                                                    <td>{{ date('d F Y', strtotime($item->created_at)) }}</td>
+                                                    <td class="d-flex justify-content-center">
+                                                        {{-- <form action="{{ route('room.destroy',['room'=>$item->id]) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-rounded mx-2 btn-danger" onclick="return confirm('are you sure?')">Delete</button>
+                                                        </form> --}}
+                                                        @if ($item->status==1)
+                                                        <form action="{{ route('room.change-status',['room'=>$item->id]) }}" method="POST">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <button type="submit" class="btn btn-rounded mx-2 btn-warning" onclick="return confirm('are you sure?')">Disabled</button>
+                                                        </form>
+                                                        @endif
+                                                        <a class="btn btn-rounded mx-2 btn-primary" href="{{ route('play',['game'=>$item->game_id,'code'=>$item->code]) }}">Detail</a>
+                                                        <button data-clipboard-target="#link-room" type="button" class="btn btn-rounded mx-2 btn-secondary copy">Copy link</button>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -129,8 +131,10 @@
 @endsection
 
 @section('script')
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
     <script>
         $(function(){
+            new ClipboardJS('.copy');
             $('#join').click(function (e) {
                 var val = $('#code').val();
                 var url = {!! json_encode(url('join/')) !!};

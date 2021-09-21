@@ -7,6 +7,19 @@
     <link rel="shortcut icon" href="{{ asset('/game/1/') }}/TemplateData/favicon.ico">
     <link rel="stylesheet" href="{{ asset('/game/1/') }}/TemplateData/style.css">
     <title>{{ $title }} | Elementary School | PHET</title>
+    <style>
+        @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+            html {
+                transform: rotate(-90deg);
+                transform-origin: left top;
+                width: 100vh;
+                overflow-x: hidden;
+                position: absolute;
+                top: 100%;
+                left: 0;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -113,13 +126,14 @@
         progressBarFull.style.width = 100 * progress + "%";
       }).then((unityInstance) => {
         loadingBar.style.display = "none";
+        unityInstance.SetFullscreen(1);
         fullscreenButton.onclick = () => {
           unityInstance.SetFullscreen(1);
         };
-        unityInstance.SendMessage('Main', 'username', name);
-        unityInstance.SendMessage('Main', 'url', url);
-        unityInstance.SendMessage('Main', 'domain', domain);
-        unityInstance.SendMessage('Main', 'participant', participant);
+        unityInstance.SendMessage('Init', 'username', name);
+        unityInstance.SendMessage('Init', 'url', url);
+        unityInstance.SendMessage('Init', 'domain', domain);
+        unityInstance.SendMessage('Init', 'participant', participant);
       }).catch((message) => {
         alert(message);
       });

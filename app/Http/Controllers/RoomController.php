@@ -123,6 +123,7 @@ class RoomController extends Controller
                 </tr>';
                 event(new JoinRoom($room->id, $data));
             }
+            session()->put('participant_id', $par->id);
             return redirect()->route('play',['game'=>$room->game_id,'code'=>$room->code]);
         }
     }

@@ -20,6 +20,7 @@ class PageController extends Controller
     public function simulationGame(Game $game)
     {
         $room = null;
+        session()->forget('participant_id');
         return view('media-phet.room_play', compact('game','room'));
     }
 
@@ -55,18 +56,22 @@ class PageController extends Controller
             $participant = Participant::all()->where('room_id',$room->id);
             $join = Participant::all()->where('room_id',$room->id)->where('user_id',Auth::id())->first();
             $discussion = Discussion::all()->where('room_id',$room->id);
-            session()->put('participant_id', $join->id);
-        }
-        if($join==null){
-            return redirect()->route('room.join',['code'=>$code]);
-        }else{
-            return view('media-phet.room_play', compact('room','participant','game','discussion'));
+            if($join==null){
+                return redirect()->route('room.join',['code'=>$code]);
+            }else{
+                session()->put('participant_id', $join->id);
+                return view('media-phet.room_play', compact('room','participant','game','discussion'));
+            }
         }
     }
 
     public function playGame(Game $game){
         if(Auth::check()){
-            $participant_id = session()->get('participant_id');
+            if(session()->has('participant_id')){
+                $participant_id = session()->get('participant_id');
+            }else{
+                $participant_id = 0;
+            }
             $name = Auth::user()->username;
         }else{
             $name = 'Player';
