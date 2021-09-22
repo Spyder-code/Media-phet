@@ -83,7 +83,7 @@
             <div class="col-md-12 col-lg-12 col-xl-2">
                 <div class="logo">
                     <a href="{{ url('/') }}">
-                        <img src="img/logo.png" alt="">
+                        <img src="{{ asset('images/logo-2.png') }}" alt="">
                     </a>
                 </div>
                 <div class="accordion-wrapper hide-sm-up">
@@ -92,7 +92,7 @@
 
                     <ul id="mobilemenu" class="accordion">
                    <li class="mob-logo"><a href="{{ url('/') }}">
-                        <img src="img/logo.png" alt="">
+                        <img src="{{ asset('images/logo-2.png') }}" alt="">
                     </a></li>
                    <li ><a class="closeme" href="#"><i class="fa fa-times" ></i></a></li>
                    <li class="fc-red out-link"><a class="" href={{ url('/') }}>Home</a></li>
