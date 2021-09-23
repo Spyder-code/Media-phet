@@ -124,9 +124,14 @@
             progressBarFull.style.width = 100 * progress + "%";
           }).then((unityInstance) => {
             loadingBar.style.display = "none";
+            unityInstance.SetFullscreen(1);
             fullscreenButton.onclick = () => {
               unityInstance.SetFullscreen(1);
             };
+            unityInstance.SendMessage('Main', 'username', name);
+            unityInstance.SendMessage('Main', 'url', url);
+            unityInstance.SendMessage('Main', 'domain', domain);
+            unityInstance.SendMessage('Main', 'participant', participant);
           }).catch((message) => {
             alert(message);
           });
