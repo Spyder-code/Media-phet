@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ asset('/game/2/') }}/TemplateData/favicon.ico">
     <link rel="stylesheet" href="{{ asset('/game/2/') }}/TemplateData/style.css">
-    <title>{{ $title }} | Junior Height School | PHET</title>
+    <title>{{ $title }} | Junior Heigh School | PHET</title>
     <style>
         @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
             html {
